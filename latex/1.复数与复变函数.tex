@@ -1,0 +1,656 @@
+\section{复数与复变函数}
+\label{复数与复变函数}
+\subsection{复数}
+\label{复数}
+\subsubsection{有关定义}
+\label{有关定义}
+规定 \(i^2=-1\) 并正常参与四则运算。
+
+有 \(z=x+yi\) 中 \(x,y\) 分别称为实部和虚部，记作
+\(x=\operatorname{Re}(z),y=\operatorname{Im}(z).\)
+
+当 \(x=0,y \ne 0\) 时称为纯虚数，而 \(y=0\) 的时候我们直接看作实数。
+
+两复数相等\textbf{当且仅当}它们的实部和虚部\textbf{分别相等}。
+
+复数等于 0\textbf{当且仅当}它的实部和虚部\textbf{同时等于 0}。
+
+\begin{tcolorbox}[title={复数中无法定义大小关系},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+假设存在这样的序关系“\(>\)”。
+
+\begin{enumerate}
+\item 假设 \(i > 0\)
+\begin{itemize}
+\item 由乘法保序性: \(i \cdot i > 0 \cdot i \Rightarrow -1 > 0\) （矛盾）
+\end{itemize}
+\item 假设 \(i < 0\)
+\begin{itemize}
+\item 则 \(-i > 0\)
+\item 由乘法保序性: \((-i) \cdot (-i) > 0 \cdot (-i) \Rightarrow i^2 > 0 \Rightarrow -1 > 0\) （矛盾）
+\end{itemize}
+\end{enumerate}
+
+两种假设都导致 \(-1 > 0\) 的矛盾，因此在复数\textbf{无法定义}满足序关系性质的大小关系。
+
+\end{tcolorbox}
+
+设两复数 \(z_{1}=x_{1}+iy_{1}\)，\(z_{2}=x_{2}+iy_{2}\)
+
+\begin{enumerate}
+\item \textbf{两复数的和、差}:
+\end{enumerate}
+
+\begin{equation*}
+z_{1} \pm z_{2} = (x_{1} \pm x_{2}) + i(y_{1} \pm y_{2})
+\end{equation*}
+
+\begin{enumerate}
+\item \textbf{两复数的积}:
+\end{enumerate}
+
+\begin{equation*}
+z_{1} \cdot z_{2} = (x_{1}x_{2} - y_{1}y_{2}) + i(x_{2}y_{1} + x_{1}y_{2})
+\end{equation*}
+
+\begin{enumerate}
+\item \textbf{两复数的商}:
+\end{enumerate}
+
+\begin{equation*}
+\frac{z_{1}}{z_{2}} = \frac{x_{1}x_{2} + y_{1}y_{2}}{x_{2}^{2} + y_{2}^{2}} + i\frac{x_{2}y_{1} - x_{1}y_{2}}{x_{2}^{2} + y_{2}^{2}}
+\end{equation*}
+\subsubsection{共轭复数}
+\label{共轭复数}
+\textbf{定义}: 实部相同而虚部绝对值相等符号相反的两个复数称为共轭复数。
+
+\textbf{表示方法}: 与 \(z\) 共轭的复数记为 \(\bar{z}\)。
+
+\textbf{数学表达式}:  若 \(z = x + iy\)，则其共轭复数
+\(\bar{z} = x - iy\)（其中 \(x\), \(y\) 为实数，\(i\) 为虚数单位）。
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+两个共轭复数 \(z,\bar{z}\) 的积是一个实数。
+
+\end{tcolorbox}
+
+\textbf{四则运算}:
+
+\begin{enumerate}
+\item 基本运算
+\begin{itemize}
+\item \textbf{加减法}: \(\overline{z_{1} \pm z_{2}} = \bar{z}_{1} \pm \bar{z}_{2}\)
+\item \textbf{乘法}: \(\overline{z_{1} \cdot z_{2}} = \bar{z}_{1} \cdot \bar{z}_{2}\)
+\item \textbf{除法}: \(\overline{\left(\dfrac{z_{1}}{z_{2}}\right)} = \dfrac{\bar{z}_{1}}{\bar{z}_{2}}\)
+\end{itemize}
+\item 自反性
+\begin{itemize}
+\item \(\overline{\bar{z}} = z\)（共轭的共轭等于自身）
+\end{itemize}
+\item 模的平方
+\begin{itemize}
+\item \(z \cdot \bar{z} = [\operatorname{Re}(z)]^{2} + [\operatorname{Im}(z)]^{2} = |z|^2\)
+\end{itemize}
+\item 实部与虚部提取
+\begin{itemize}
+\item \(z + \bar{z} = 2\operatorname{Re}(z)\)
+\item \(z - \bar{z} = 2i\operatorname{Im}(z)\)
+\end{itemize}
+\end{enumerate}
+\subsection{复平面}
+\label{复平面}
+\subsubsection{定义}
+\label{定义}
+\begin{enumerate}
+\item 复数 \(z = x + iy\) 与有序实数对 \((x, y)\) 成一一对应。
+\item 一个建立了直角坐标系的平面可以用来表示复数。这种用来表示复数的平面叫*复平面*。
+\item 通常把\textbf{横轴}叫\textbf{实轴}或 \(x\) 轴，\textbf{纵轴}叫\textbf{虚轴}或 \(y\) 轴。
+\end{enumerate}
+
+复数 \(z = x + iy\) 可以用复平面上的点 \((x, y)\) 表示。
+\subsubsection{模}
+\label{模}
+将 \(z = x + iy\) 用复平面上的向量 \(\overrightarrow{OP}\) 表示，此时
+\(|z|=\left|\overrightarrow{OP}\right|=\sqrt{x^2+y^2}.\)
+
+显然:
+
+\begin{enumerate}
+\item \(|x|\le |z|\)
+\item \(|y|\le |z|\)
+\item \(|z| \le |x|+|y|\)
+\item \(z\bar{z}=|z|^2\)
+\end{enumerate}
+\subsubsection{幅角}
+\label{幅角}
+当 \(z=0\) 时，幅角\textbf{不确定}。
+
+当 \(z \ne 0\) 时:
+
+\begin{enumerate}
+\item 以正实轴为始边，以表示复数 \(z\) 的向量 \(\overrightarrow{OP}\)
+为终边的角 \(\theta\) 称为 \(z\) 的幅角，记作
+\(\operatorname{Arg}z.\)
+\item 把满足 \(-\pi<\theta_0<\pi\) 的 \(\theta_0\) 称为幅角主值:
+\end{enumerate}
+
+\begin{equation*}
+\operatorname{arg}z=
+\begin{cases}
+\arctan \dfrac{y}{x}, & x > 0 \\
+\pm \dfrac{\pi}{2}, & x = 0,y \ne 0 \\
+\arctan \dfrac{y}{x}\pm \pi, & x<0,y\ne 0\\
+\pi & x<0, y=0
+\end{cases}
+\end{equation*}
+
+其中\(-\dfrac{\pi}{2}<\arctan\dfrac{y}{x}<\dfrac{\pi}{2}.\)
+\subsubsection{平行四边形法则}
+\label{平行四边形法则}
+平行四边形法则计算加减法与向量加减法的方法一致。
+\subsubsection{复数差和模的性质}
+\label{复数差和模的性质}
+因为 \(|z_{1}-z_{2}|\) 表示点 \(z_{1}\) 和 \(z_{2}\) 之间的距离，故:
+
+\begin{enumerate}
+\item \(|z_{1} + z_{2}| \le |z_{1}| + |z_{2}|\) （三角不等式）
+\item \(|z_{1} - z_{2}| \ge \left| |z_{1}| - |z_{2}| \right|\)
+（反向不等式）
+\end{enumerate}
+
+一对共轭复数 \(z\) 和 \(\bar{z}\) 在复平面内的位置是关于实轴对称的。
+\subsubsection{三角表示和指数表示}
+\label{三角表示和指数表示}
+利用
+
+\begin{equation*}
+\begin{cases}
+x = r\cos\theta\\
+y = r\sin\theta
+\end{cases}
+\end{equation*}
+
+将复数表示为
+
+\begin{equation*}
+z=r(\cos\theta+i\sin\theta)\tag{三角表示}
+\end{equation*}
+
+再利用欧拉公式: \(e^{i\theta}=\cos\theta+i\sin\theta\)
+
+我们将复数表示成:
+
+\begin{equation*}
+z=re^{i\theta}\tag{指数表示}
+\end{equation*}
+\subsubsection{一些证明}
+\label{一些证明}
+\begin{equation*}
+\begin{aligned}
+|z_1z_2|&=\sqrt{(z_1z_2)\overline{(z_1z_2)}}\\
+&=\sqrt{(z_1z_2)(\bar{z}_1\bar{z}_2)}\\
+&=\sqrt{(z_1\bar{z}_1)(z_2\bar{z}_2)}\\
+&=|z_1||z_2|
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\left|z_{1}+z_{2}\right|^{2} &=\left(z_{1}+z_{2}\right)\overline{\left(z_{1}+z_{2}\right)}=\left(z_{1}+z_{2}\right)\left(\bar{z}_{1}+\bar{z}_{2}\right)\\
+&=z_{1}\bar{z}_{1}+z_{2}\bar{z}_{2}+\bar{z}_{1} z_{2}+z_{1}\bar{z}_{2}\\
+&=\left|z_{1}\right|^{2}+\left|z_{2}\right|^{2}+\bar{z}_{1} z_{2}+z_{1}\bar{z}_{2}
+\end{aligned}
+\end{equation*}
+
+因为
+\(\bar{z}_{1}z_{2}+z_{1}\bar{z}_{2}=2\operatorname{Re}(z_{1}\bar{z}_{2})\)
+, 于是
+
+\begin{equation*}
+\begin{aligned}
+\left|z_{1}+z_{2}\right|^{2}&=\left|z_{1}\right|^{2}+\left|z_{2}\right|^{2}+2\operatorname{Re}(z_{1}\bar{z}_{2}) \\
+&\leq\left|z_{1}\right|^{2}+\left|z_{2}\right|^{2}+2\left|z_{1}\bar{z}_{2}\right| \\
+&=\left|z_{1}\right|^{2}+\left|z_{2}\right|^{2}+2\left|z_{1}\right|\left|z_{2}\right| \\
+&=\left(\left|z_{1}\right|+\left|z_{2}\right|\right)^{2}
+\end{aligned}
+\end{equation*}
+
+两边同时开方得
+\(\left|z_{1}+z_{2}\right|\leq\left|z_{1}\right|+\left|z_{2}\right|\)。
+\subsubsection{直线方程}
+\label{直线方程}
+写出一个直线的参数方程:
+
+\begin{equation*}
+\left\{
+\begin{array}{l}
+x = x_1 + t (x_2 - x_1) \\
+y = y_1 + t (y_2 - y_1)
+\end{array}
+\right.
+\quad t \in (-\infty, +\infty)
+\end{equation*}
+
+于是它的复数形式为:
+
+\begin{equation*}
+z=z_1+t(z_2-z_1)\quad t\in (-\infty,+\infty)
+\end{equation*}
+
+从 \(z_1\) 到 \(z_2\) 的直线段就取 \(t \in (0,1)\) ，取
+\(t=\dfrac{1}{2}\) 就能得到中点坐标为 \(\dfrac{z_1+z_2}{2}\)。
+\subsection{复球面}
+\label{复球面}
+\subsubsection{复球面定义}
+\label{复球面定义}
+取复平面与球面切于 \(z=0\)，球面上点 \(S\) 和原点重合为 \(S\)
+极/南极。另一端为 \(N\) 极/北极。
+\subsubsection{对应}
+\label{对应}
+对于除 \(N\) 外任意一点 \(P\)，连接 \(NP\)
+就能建立复球面和复平面的对应。
+
+然后规定复数中有一个“无穷大”来对应 \(N\) 点。记号仍然用 \(\infty\)
+这个符号。
+\subsubsection{扩充复平面}
+\label{扩充复平面}
+加上了无穷远点的复平面称为扩充复平面。
+
+不包括无穷远点的叫有限复平面或者直接叫复平面。
+
+\(\operatorname{Re}(\infty), \operatorname{Im}(\infty), \operatorname{Arg}(\infty)\)
+等概念都没有意义，然后我们规定它的模是 \(+\infty\)。
+
+无穷远点的邻域是一个半径足够大的圆的外部。
+\subsubsection{无穷的四则运算}
+\label{无穷的四则运算}
+\begin{enumerate}
+\item 加法: \(\alpha + \infty = \infty + \alpha = \infty\),
+\((\alpha \neq \infty)\)
+\item 减法: \(\alpha - \infty = \infty - \alpha = \infty\),
+\((\alpha \neq \infty)\)
+\item 乘法: \(\alpha \cdot \infty = \infty \cdot \alpha = \infty\),
+\((\alpha \neq 0)\)
+\item 除法: \(\frac{\alpha}{\infty} = 0\),
+\(\frac{\infty}{\alpha} = \infty\), \((\alpha \neq \infty)\),
+\(\frac{\alpha}{0} = \infty\), \((\alpha \neq 0)\)
+\item 神秘的运算依然神秘，\(\infty \pm \infty, 0 \cdot \infty, \frac{\infty}{\infty}, \frac{0}{0}\)
+依然\textbf{没有意义}。
+\end{enumerate}
+\subsection{乘除幂根}
+\label{乘除幂根}
+\subsubsection{乘和除}
+\label{乘和除}
+若
+\(z_1=r_1(\cos\theta_1+i\sin\theta_1),z_2=r_2(\cos\theta_2+i\sin\theta_2)\)，则
+
+\begin{equation*}
+\begin{aligned}
+z_{1}z_{2} &= r_{1}r_{2}(\cos\theta_{1}+i\sin\theta_{1})(\cos\theta_{2}+i\sin\theta_{2}) \\
+&= r_{1}r_{2}[(\cos\theta_{1}\cos\theta_{2}-\sin\theta_{1}\sin\theta_{2})+i(\sin\theta_{1}\cos\theta_{2}+\sin\theta_{2}\cos\theta_{1})] \\
+&= r_{1}r_{2}[\cos(\theta_{1}+\theta_{2})+i\sin(\theta_{1}+\theta_{2})]
+\end{aligned}
+\end{equation*}
+
+于是
+
+\begin{equation*}
+|z_1z_2|=r_1r_2=|z_1||z_2|,\\
+\operatorname{Arg}z_1z_2=\operatorname{Arg}z_1+\operatorname{Arg}z_2.
+\end{equation*}
+
+\begin{tcolorbox}[title={需要注意},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+这里的 \(\operatorname{Arg}\) 绝对不可以写成
+\(\operatorname{arg}\)，因为这个式子的意思是两个集合相等。
+可以理解为这两个的区别:
+
+\begin{verbatim}
+set Arg(complex z);   // 结果是一个包含所有幅角的集合
+angle arg(complex z); // 结果是一个幅角，代表主值
+\end{verbatim}
+
+也就是说，\(\operatorname{arg}z_1z_2=\operatorname{arg}z_1+\operatorname{arg}z_2\) 是\textbf{不一定成立}的。
+
+\end{tcolorbox}
+
+也就是: \textbf{模量相乘，幅角相加}。
+
+从几何上看可以视为缩放和旋转，而且可以把结论推广到\textbf{更多个复数相乘的情况}。
+
+并且同样可以拓展到商: \textbf{模量相除，幅角相减}。
+
+写成指数形式就是:
+
+若 \(z_1=r_1e^{i\theta_1}, z_2=r_2e^{i\theta_2}\)，则
+
+\begin{equation*}
+z_1z_2=r_1r_2e^{i(\theta_1+\theta_2)},\frac{z_1}{z_2}=\frac{r_1}{r_2}e^{i(\theta_1-\theta_2)}.
+\end{equation*}
+\subsubsection{幂和根}
+\label{幂和根}
+幂的定义和实数是一样的。
+
+\begin{equation*}
+z^n=\overbrace{z\cdot z \cdots z}^{n\text{个}},\\
+z^{-n}=\frac{1}{z^n}.
+\end{equation*}
+
+然后，对于 \(n \in \mathbb{N^*}\)，\(z_n=r_n(\cos n \theta + i \sin n \theta)\)。
+
+\textbf{棣莫佛公式}: 当 \(z\) 的模 \(r=1\)，即 \(z=\cos\theta+i\sin\theta\) 时，
+
+\begin{equation*}
+(\cos\theta+i\sin\theta)^n=\cos n\theta+i\sin n\theta.
+\end{equation*}
+
+复数开根的时候，\textbf{几次方根必有几个结果}，所以把开根当成一个\textbf{多值函数}。
+
+\begin{equation*}
+\sqrt[n]{z}=r^\frac{1}{n}\left(\cos\frac{\theta+2k\pi}{n}+i\sin\frac{\theta+2k\pi}{n} \right),k=0,1,\cdots,n-1.
+\end{equation*}
+
+当 \(k=0,1,2,\cdots,n-1\) 时，得到 \(n\) 个相异的根:
+
+\begin{equation*}
+\begin{aligned}
+w_0 &= r^{\frac{1}{n}} \cdot \left( \cos\frac{\theta}{n} + i\sin\frac{\theta}{n} \right)\\
+w_1 &= r^{\frac{1}{n}} \cdot \left( \cos\frac{\theta + 2\pi}{n} + i\sin\frac{\theta + 2\pi}{n} \right)\\
+&\cdots\\
+w_{n-1} &= r^{\frac{1}{n}} \cdot \left( \cos\frac{\theta + 2(n-1)\pi}{n} + i\sin\frac{\theta + 2(n-1)\pi}{n} \right)\\
+w_n&=w_0,w_{n+1}=w_1,\cdots
+\end{aligned}
+\end{equation*}
+
+几何上看，就是以原点为中心，\(r^\frac{1}{n}\) 为半径的圆的内接正 \(n\)
+边形的 \(n\) 个顶点。
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+一旦涉及开根运算，务必不要忘记写 \(k=0,1,\cdots\) 来表示所有值！
+
+\end{tcolorbox}
+\subsection{区域}
+\label{区域}
+\subsubsection{相关定义}
+\label{相关定义}
+\textbf{邻域}: 平面上以 \(z_0\) 为中心， \(\delta\)
+为半径的圆: \(|z-z_0|<\delta\) 内部的点的集合称为 \(z_0\) 的\textbf{邻域}。
+
+\textbf{去心邻域}: 把 \(z_0\) 自己去掉，也就是 \(0 < |z-z_0| < \delta\)
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+无穷远点也有邻域和去心邻域，分别是\textbf{包含/不包含自身在内}，满足
+\(|z| > M\) 的集合。
+
+
+需要注意的是，这里 \(\delta,M>0\) 就可以，定义邻域的时候不要求它们足够大或者足够小。
+
+\end{tcolorbox}
+
+\textbf{内点}: 设 \(G\) 为一平面点集，\(z_0\) 为 \(G\) 中任意一点。如果存在
+\(z_0\) 的一个邻域，该邻域内的所有点都属于 \(G\)，那么 \(z_0\) 称为
+\(G\) 的内点。
+
+\textbf{开集}: 如果 \(G\) 内每一点都是它的内点，那么 \(G\) 称为开集。
+
+\textbf{区域}:  如果平面点集 \(D\) 满足以下两个条件，则称它为一个区域:
+
+\begin{enumerate}
+\item \(D\) 是一个\textbf{开集}；
+\item \(D\) 是\textbf{连通的}，即 \(D\) 中任何两点都可以用完全属于 \(D\)
+的一条折线连结起来。
+\end{enumerate}
+
+\textbf{边界点、边界}: 设 \(D\) 是复平面内的一个区域，如果点 \(P\) 不属于
+\(D\)，但在 \(P\) 的任意小的邻域内总有 \(D\) 中的点，这样的点 \(P\) 称为
+\(D\) 的\textbf{边界点}。
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+通俗理解的话，边界和边界点的定义很符合直观，然后开集就是不带边界，区域就是还要求没有从中间断开。
+
+\end{tcolorbox}
+
+\textbf{有界和无界}:  存在 \(M > 0\) 使得对于 \(\forall z,|z| < M\) 则 \(D\)
+有界。否则无界。
+\subsubsection{单连通域和多连通域}
+\label{单连通域和多连通域}
+\textbf{平面曲线的复数表示}:
+
+\begin{equation*}
+z=z(t)=x(t)+iy(t),a \le t \le b
+\end{equation*}
+
+\begin{itemize}
+\item 连续曲线: \(x(t)\) 和 \(y(t)\) 是连续的实变函数。
+\item 光滑曲线: 在 \([a,b]\) 上 \(x'(t),y'(t)\) 连续，且对于
+\(\forall t, [x'(t)]^2 + [y'(t)]^2 \ne 0\)。
+\item 起点: \(z(a)\)
+\item 终点: \(z(b)\)
+\item 重点: \(\exists t_1 \ne t_2, z(t_1)=z(t_2)\)。
+\item 简单曲线: 没有重点（自身不相交）。
+\end{itemize}
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+几段光滑曲线相接称为按段光滑曲线。
+
+如果起点终点重合,也就是 \(z(a)=z(b)\)，为简单闭曲线。
+
+\end{tcolorbox}
+
+任何一条简单闭曲线把复平面唯一地分为三个互不相交的点集: 内部，外部，边界。
+
+\textbf{单连通域}: 任意作简单闭曲线，曲线内部总属于该区域。（\textbf{没有洞}）
+
+\textbf{多连通域}: 不是单连通域的区域。（\textbf{有洞，哪怕仅一个空心点}）
+
+\begin{tcolorbox}[title={Tip},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+极坐标方程的曲线看对称性，看 \(\theta\) 和
+\(-\theta\)（上下），\(\pi - \theta\)（左右）的关系。
+
+\(r^2 = 2\cos 2\theta\) 也就是 \(|z+1|\cdot |z-1| = 1\) 是双叶玫瑰线。
+其内部不是区域。
+
+\end{tcolorbox}
+\subsection{复变函数}
+\label{复变函数}
+\subsubsection{相关定义}
+\label{相关定义-1}
+定义的画风和实变函数很像:
+
+设 \(G\) 是一个复数 \(z = x + iy\)
+的集合。如果有一个确定的法则存在，按这个法则，对于集合 \(G\)
+中的每一个复数 \(z\)，就有一个或几个复数 \(w = u + iv\)
+与之对应，则称复变数 \(w\) 是复变数 \(z\) 的函数（简称复变函数），记作
+\(w = f(z)\)。
+
+\textbf{单值函数和多值函数}:  一个 \(z\) 对应一个 \(w\)，还是对应许多个 \(w\)。
+
+\textbf{定义集合和函数值集合}:  定义域和值域的复变版。符号: \(G\) 和 \(G^*\)。
+
+\textbf{复变函数与自变量的关系}:  \(w=f(z)\) 相当于两个关系式:
+
+\begin{equation*}
+u=u(x,y),v=v(x,y)
+\end{equation*}
+\subsubsection{映射}
+\label{映射}
+如果用 \(z\) 平面上的点表示自变量 \(z\) 的值，而用另一个平面 \(w\)
+上的点表示函数 \(w\) 的值，则函数 \(W=f(z)\)
+在几何上就可以看作是把平面上的一个点集 \(G\)（定义集合）变到 \(w\)
+平面上的一个点集 \(G*\)（函数值集合）的\textbf{映射}（或变换）。
+
+此映射简称为函数 \(w=f(z)\) 构成的映射。
+
+如果 \(G\) 中的点 \(z\) 被映射 \(w = f(z)\) 映射成 \(G^*\) 中的点
+\(w\)，则 \(w\) 称为 \(z\) 的\textbf{象（映象）}，而 \(z\) 称为 \(w\)
+的\textbf{原象}。
+
+两个特殊映射:
+
+\begin{enumerate}
+\item \(w=\bar{z}\): 关于实轴的对称映射。
+\item \(w=z^2\):
+\begin{itemize}
+\item 能够把与实轴交角为 \(\alpha\) 的角形域映射成交角为 \(2\alpha\)
+的角形域。
+\item 因为对应于 \(u=x^2-y^2,v=2xy\) 这两个实变函数，所以它可以把 \(z\) 平面上两
+族分别以 \(y=\pm x\) 和两坐标轴为渐近线的等轴双曲线:
+\begin{equation*}
+x^2-y^2=c_1,2xy=c_2
+\end{equation*}
+分别映射成两族平行直线:
+\begin{equation*}
+u=c_1,v=c_2.
+\end{equation*}
+\item 考虑直线 \(x=\lambda\) 的象的参数方程:
+\begin{equation*}
+\begin{cases}
+u &= \lambda^2-y^2,\\
+v &=2\lambda y.
+\end{cases}
+\end{equation*}
+而消去参数 \(y\):
+\begin{equation*}
+v^2=4\lambda^2(\lambda^2-u)
+\end{equation*}
+是以原点为焦点而开口朝右的抛物线。
+\end{itemize}
+\item 反函数: \(G^*\) 中的每个 \(w\) 一定对应了一个或几个
+\(z\)，于是确定了一个单值或多值的反函数，也叫逆映射。
+\end{enumerate}
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+如果函数和反函数都是单值函数，我们称其是\textbf{一一对应}的。
+
+并且，此后我们不再区分函数和映射。
+
+\end{tcolorbox}
+\subsection{复变函数的极限和连续性}
+\label{复变函数的极限和连续性}
+\subsubsection{极限}
+\label{极限}
+设函数 \(w=f(z)\) 定义在 \(z_0\) 的去心邻域 \(0 < |z - z_0| < \rho\)
+内，如果有一确定的数 \(A\) 存在，对于任意给定的
+\(\varepsilon > 0\)，相应地必有一正数 \(\delta(\varepsilon)\) 使得当
+\(0 < |z - z_0| < \delta\) \((0 < \delta \leq \rho)\) 时，有
+\(|f(z) - A| < \varepsilon\)，则称 \(A\) 为 \(f(z)\) 当 \(z\) 趋向于
+\(z_0\) 时的极限。 记作 \(\lim_{z \to z_0} f(z) = A\)（或
+\(f(z) \xrightarrow{z \to z_0} A\)）
+
+\begin{tcolorbox}[title={Tips},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+定义中 \(z \to z_0\) 的方式是\textbf{任意的}。
+
+\end{tcolorbox}
+\subsubsection{极限计算的定理}
+\label{极限计算的定理}
+\begin{enumerate}
+\item 设 \(f(z) = u(x, y) + i v(x, y)\)，\(A = u_0 + i v_0\)，\(z_0 =
+   x_0 + i y_0\)，那末 \(\lim_{z \to z_0} f(z) = A\) 的充要条件是:
+\begin{equation*}
+\lim_{\substack{x \to x_0 \\
+y \to y_0}} u(x, y) = u_0, \quad \lim_{\substack{x \to x_0
+\\ y \to y_0}} v(x, y) = v_0.
+\end{equation*}
+\item 极限运算法则与实变函数的极限运算法则是类似的。若
+\(\lim_{z \to z_0}f(z)=A, \lim_{z \to z_0}g(z)=B\)，则:
+\begin{enumerate}
+\item \(\lim_{z \to z_0}[f(z) \pm g(z)] = A \pm B\)
+\item \(\lim_{z \to z_0}[f(z)g(z)]=AB\)
+\item \(\lim_{z \to z_0}\dfrac{f(z)}{g(z)}=\dfrac{A}{B},(B \ne 0)\)
+\end{enumerate}
+\end{enumerate}
+\subsubsection{连续}
+\label{连续}
+如果 \(\lim\limits_{z \to z_0} f(z) = f(z_0)\)，那末我们就说 \(f(z)\) 在
+\(z_0\) 处连续。如果 \(f(z)\) 在区域 \(D\) 内处处连续，我们说 \(f(z)\)
+在 \(D\) 内连续。
+
+函数 \(f(z)\) 在曲线 \(C\) 上 \(z_0\) 处连续的意义是
+\(\lim\limits_{z \to z_0} f(z) = f(z_0)\)，\(z \in C\)。
+\subsubsection{连续的相关定理}
+\label{连续的相关定理}
+\begin{enumerate}
+\item 函数 \(f(z) = u(x, y) + iv(x, y)\) 在 \(z_0 = x_0 + iy_0\)
+处连续的充要条件是: \(u(x, y)\) 和 \(v(x, y)\) 在 \((x_0, y_0)\)
+处连续。
+\item 在 \(z_0\) 连续的两个函数 \(f(z)\) 和 \(g(z)\)
+的和、差、积、商（分母在 \(z_0\) 不为零）在 \(z_0\) 处仍连续。
+\item 如果函数 \(h = g(z)\) 在 \(z_0\) 连续，函数 \(w = f(h)\) 在
+\(h_0 = g(z_0)\) 连续，那末复合函数 \(w = f[g(z)]\) 在 \(z_0\)
+处连续。
+\end{enumerate}
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+特殊的:
+\begin{enumerate}
+\item 有理整函数（多项式） \(w=P(z)=a_{0}+a_{1}z+a_{2}z^{2}+\cdots+a_{n}z^{n}\) 对复平面内的所有点 \(z\) 都是连续的；
+\item 有理分式函数 \(w=\frac{P(z)}{Q(z)}\) 其中 \(P(z)\) 和 \(Q(z)\) 都 是多项式，在复平面内使分母不为零的点也是连续的。
+\end{enumerate}
+
+\end{tcolorbox}
+\subsection{章末杂项}
+\label{章末杂项}
+二次方程求根公式是
+
+\begin{equation*}
+x=\frac{-b \pm \sqrt{b^2-4ac}}{2a}
+\end{equation*}
+
+但是对于复数来说，\textbf{开根是一个多值函数}。所以这时候没有必要再写 \(\pm\) 号，因为
+\(\sqrt{b^2-4ac}\) 事实上\textbf{已经同时包含了两个结果}。
+
+需要注意的是 \(\sqrt{z^2}=|z|\) 不再成立，因为开根是多值函数，而且绝对值和模也不一样。取而代之的是 \(\sqrt{z^2}=\pm z\)。
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+归根结底是由于这个根号的含义\textbf{发生了改变}，从实数的\textbf{算术平方根}变成了复数的\textbf{二次方根}，而二次方根其实本来就有两个。
+
+\end{tcolorbox}
+
+神秘小例题: \(w=\dfrac{1}{z}\) 会把以下曲线映射成 \(w\) 平面上的什么曲线？
+
+\begin{enumerate}
+\item \(x^2+y^2=r^2 \to u^2+v^2=(\dfrac{1}{r})^2\)
+\item \(x=a \to (u-\dfrac{1}{2a})^2+v^2=(\dfrac{1}{2a})^2\)
+\end{enumerate}
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+其实很好理解: \(w=\dfrac{1}{z}\)可不就是把原点和无穷远点的地位互换了吗？
+
+\end{tcolorbox}
