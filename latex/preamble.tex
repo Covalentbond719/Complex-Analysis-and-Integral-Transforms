@@ -154,6 +154,16 @@
 \usepackage{fvextra}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,fontsize=\small,commandchars=\\\{\}}
 
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -161,6 +171,11 @@
 \usepackage{makecell}
 \usepackage{tabularx}
 \usepackage[most]{tcolorbox}
+\tcbuselibrary{breakable}
+\tcbuselibrary{breakable}
+\tcbuselibrary{skins}
+\tcbset{breakable, enhanced jigsaw}
+\allowdisplaybreaks[4]
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
@@ -248,6 +263,16 @@
 % tables
 %
 
+\definecolor{table-row-color}{HTML}{F5F5F5}
+\definecolor{table-rule-color}{HTML}{999999}
+
+%\arrayrulecolor{black!40}
+\arrayrulecolor{table-rule-color}     % color of \toprule, \midrule, \bottomrule
+\setlength\heavyrulewidth{0.3ex}      % thickness of \toprule, \bottomrule
+\renewcommand{\arraystretch}{1.5}     % spacing (padding)
+\setlength{\tabcolsep}{10pt}          % spacing between columns
+
+
 %
 % remove paragraph indentation
 %
@@ -278,3 +303,9 @@
   \addtokomafont{pageheadfoot}{\upshape}
 }
 \pagestyle{eisvogel-header-footer}
+
+
+
+%
+% Define watermark
+%

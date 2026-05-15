@@ -1,0 +1,289 @@
+\section{Laplace 变换}
+\label{laplace-变换}
+\subsection{Laplace 变换概念}
+\label{laplace-变换概念}
+\subsubsection{Laplace 变换定义}
+\label{laplace-变换定义}
+\begin{tcolorbox}[title={Tip},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+这里的虚数单位使用字母 \(j\) 代替字母 \(i\) 表示，这是因为
+Laplace 变换主要服务于工程。工程中字母 \(i\) 容易有很多其他含义，所以用
+\(j\)。
+
+\end{tcolorbox}
+
+设 \(f(t)\) 是 \([0,+\infty)\) 上的实/复函数，若对于参数
+\(s = \beta + j \omega,F(s) = \int _{0}^{+\infty}f(t)e^{-st}\,\mathrm{d}t\)
+在 \(s\) 平面的某一区域内收敛，则称其为 \(f(t)\) 的 Laplace 变换，记为
+
+\[
+\mathcal{L}[f(t)] = F(s) = \int _{0}^{+\infty}f(t)e^{-st}\,\mathrm{d}t
+\]
+
+这时候 \(f(t)\) 就是 \(F(s)\) 的 Laplace 逆变换：
+
+\[
+f(t) = \mathcal{L}^{-1}[F(s)]
+\]
+
+\(F(s)\) 称为像函数，\(f(t)\) 称为原像函数。
+\subsubsection{Laplace 变换的存在定理}
+\label{laplace-变换的存在定理}
+若函数 f(t)满足：
+
+\begin{enumerate}
+\item 在 \(t \ge 0\) 的任一有限区间上分段连续；
+
+\item 当 \(t \to +\infty\) 时，\(f(t)\)
+的增长速度不超过某一指数函数，即存在常数 \(M>0\) 及 \(c\ge 0\)，使得
+\end{enumerate}
+
+\begin{equation*}
+|f(t)| \le Me^{ct},0\le t < +\infty.
+\end{equation*}
+
+则 \(f(t)\) 的拉氏变换
+
+\[
+F(s)=\int_{0}^{+\infty}f(t)e^{-st}dt
+\]
+
+在半平面 \(\operatorname{Re}(s)>c\) 上一定存在，并且在
+\(\operatorname{Re}(s)>c\) 的半平面内，\(F(s)\) 为解析函数。
+\subsubsection{常见函数的 Laplace 变换}
+\label{常见函数的 laplace 变换}
+\begin{enumerate}
+\item 单位阶跃函数
+\[
+    \mathcal{L}[u(t)] = \frac{1}{s} \quad (\operatorname{Re}(s) > 0)
+    \]
+\item 指数函数
+\[
+    \mathcal{L}[e^{kt}] = \frac{1}{s - k} \quad (\operatorname{Re}(s) > k)
+    \]
+\item 正弦函数
+\[
+    \mathcal{L}[\sin kt] = \frac{k}{s^{2} + k^{2}} \quad (\operatorname{Re}(s) > 0)
+    \]
+\item 余弦函数
+\[
+    \mathcal{L}[\cos kt] = \frac{s}{s^{2} + k^{2}} \quad (\operatorname{Re}(s) > 0)
+    \]
+\item 幂函数
+\[
+    \mathcal{L}[t^{m}] = \frac{m!}{s^{m+1}} \quad m \in Z^{+}, (\operatorname{Re}(s) > 0)
+    \]
+\item 单位脉冲函数 \(\delta(t)\)
+\begin{align*}
+ H(t) &= \begin{cases}
+     1, & t=0\\
+     0, & t \ne 0
+ \end{cases} \\
+ \delta(t) &= H'(t).
+ \end{align*}
+\item 周期函数 \(f(t)=f(t+T)\)
+\begin{align*}
+    \mathcal{L}[f(t)]
+    &= \int _0^T f(t)e^{-st}\,\mathrm{d}t + \cdots + \int _{kT}^{(k+1)T} f(t)e^{-st}\,\mathrm{d}t + \cdots
+    \\[1ex]
+    &= \int _0^T f(t)e^{-st}\,\mathrm{d}t + \cdots + e^{-skT} \int _0^T f(t)e^{-st}\,\mathrm{d}t + \cdots
+    \\[1ex]
+    &= \boxed{\frac{1}{1-e^{-sT}} \int _0^T f(t)e^{-st}\,\mathrm{d}t,\quad \operatorname{Re}(s) > 0}
+\end{align*}
+\end{enumerate}
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+\(\delta(t)\) 的性质
+\begin{align*}
+\int_{-\infty}^{+\infty} \delta(t) \,\mathrm{d}t = 1. \quad \int_{-\infty}^{+\infty} \delta(t)f(t) \mathrm{d}t &= f(0) \\
+\int_{-\infty}^{+\infty} \delta(t-t_0)f(t) \,\mathrm{d}t &= f(t_0) \\
+\mathcal{L}[\delta(t)] = \int_{0^{-}}^{+\infty}\delta(t)e^{-st} \,\mathrm{d}t = \int _{-\infty}^{+\infty} \delta(t)e^{-st} \,\mathrm{d}t &= 1 \\
+\mathcal{L}[\delta(t)] &= 1.
+\end{align*}
+
+\end{tcolorbox}
+\subsection{Laplace 变换性质}
+\label{laplace-变换性质}
+\subsubsection{线性性质}
+\label{线性性质}
+\(\mathcal{L}[f_{i}(t)]=F_{i}(s)\,(i=1,2)\)，则
+
+\[
+\mathcal{L}[a_{1} f_{1}(t)+a_{2} f_{2}(t)]=a_{1} F_{1}(s)+a_{2} F_{2}(s), \\
+\mathcal{L}^{-1}[b_{1} F_{1}(s)+b_{2} F_{2}(s)]=b_{1} f_{1}(t)+b_{2} f_{2}(t).
+\]
+\subsubsection{微分性质}
+\label{微分性质}
+\(\mathcal{L}[f(t)]=F(s)，(\operatorname{Re}s > c)\)，则
+
+\begin{align*}
+    \mathcal{L}[f'(t)] &= sF(s)-f(0) \\
+    \mathcal{L} \left[ f^{(n)}(t) \right] &=s^n F(s) - s^{n-1} f(0) - s^{n-2} f'(0) - \cdots - f^{(n-1)}(0)
+\end{align*}
+
+其中 \((n=1,2,\cdots；\operatorname{Re}s > c)\)。
+
+特别地，当 \(f(0) = f'(0) = \cdots = f^{(n)}(0) = 0\) 时，
+
+\[
+\mathcal{L}\left[ f^{(n)}(t) \right]=s^n F(s)
+\]
+
+\begin{tcolorbox}[title={像函数微分性质},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+\begin{align*}
+    \mathcal{L}[(-t)f(t)]&=F^{\prime}(s) \\
+    \mathcal{L}^{-1}[F^{\prime}(s)]&=(-t)f(t)\quad(\operatorname{Re} s>c). \\
+    \mathcal{L}\left[(-t)^{n} f(t)\right]&=F^{(n)}(s), \\
+    \mathcal{L}^{-1}\left[F^{(n)}(s)\right]&=(-t)^{n}f(t).
+\end{align*}
+
+\end{tcolorbox}
+\subsubsection{积分性质}
+\label{积分性质}
+\(\mathcal{L}[f(t)]=F(s)，(\operatorname{Re}s > c)\)，则
+
+\[
+\mathcal{L}\left[\int_{0}^{t} f(t) d t\right]=\frac{F(s)}{s}\quad\left(\operatorname{Re} s>\max (0, c)\right)
+\\[1ex]
+\mathcal{L}\left[\underbrace{\int_{0}^{t} \mathrm{d} t \int_{0}^{t} \mathrm{d} t \cdots \int_{0}^{t} f(t) \,\mathrm{d} t}_{n \text{次}}\right]=\frac{1}{s^{n}} F(s)
+\]
+
+\begin{tcolorbox}[title={像函数积分性质},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+已知 \(\mathcal{L}[f(t)] = F(s)\)，则有：
+\begin{align*}
+  \int_{s}^{\infty} F(s)  \mathrm{d} s &= \int_{s}^{\infty} \left[ \int_{0}^{+\infty} f(t) \mathrm{e}^{-\mu t}  \mathrm{d} t \right] \mathrm{d} \mu \\
+  &= \int_{0}^{+\infty} f(t) \left[ \int_{s}^{\infty} \mathrm{e}^{-\mu t}  \mathrm{d} \mu \right] \mathrm{d} t \\
+  &= \int_{0}^{+\infty} f(t) \left( \left. \frac{-1}{t} \mathrm{e}^{-\mu t} \right|_{s}^{\infty} \right) \mathrm{d} t \\
+  &= \int_{0}^{+\infty} \frac{f(t)}{t} \mathrm{e}^{-s t}  \mathrm{d} t \\
+  &= \mathcal{L} \left[ \frac{f(t)}{t} \right]
+  \end{align*}
+\textbf{结论：}
+\[
+    \mathcal{L} \left[ \frac{f(t)}{t} \right] = \int_{s}^{\infty} F(s)  \mathrm{d} s
+    \]
+更一般地，有：
+\[
+    \mathcal{L} \left[ \frac{f(t)}{t^{n}} \right] = \underbrace{ \int_{s}^{\infty}  \mathrm{d} s \int_{s}^{\infty}  \mathrm{d} s \cdots \int_{s}^{\infty} F(s)  \mathrm{d} s }_{n \text{ 次}}
+    \]
+
+\end{tcolorbox}
+\subsubsection{平移性（延迟性）}
+\label{平移性延迟性}
+\(\mathcal{L}[f(t)]=F(s)(t<0, f(t)=0)\)，则
+\[
+\mathcal{L}[f(t-\tau)]=e^{-s\tau}\mathcal{L}[f(t)]=e^{-s\tau}F(s)\quad(\text{Re }s>c)
+\]
+
+函数 \(f(t-\tau)\) 与 \(f(t)\) 相比，\(f(t)\) 从 \(t=0\)
+开始有非零数值，而 \(f(t-\tau)\) 是从 \(t=\tau\)
+开始才有非零数值，即延迟了一个时间 \(\tau\)。从它的图象讲，\(f(t-\tau)\)
+是由 \(f(t)\) 沿 \(t\) 轴向右平移 \(\tau\) 而得，其 Laplace
+变换也多一个因子 \(e^{-s\tau}\)。
+\subsubsection{位移性}
+\label{位移性}
+\(\mathcal{L}[f(t)]=F(s)\,(\operatorname{Re}s > c)\)，则
+\[
+\mathcal{L}\left[e^{\alpha t}f(t)\right] = F(s - \alpha),\quad (\operatorname{Re}(s - \alpha) > c)
+\\[1ex]
+\mathcal{L}^{-1}[F(s-\alpha)] = e^{\alpha t}f(t)
+\]
+\subsection{Laplace 逆变换}
+\label{laplace-逆变换}
+\subsubsection{Laplace 反演积分}
+\label{laplace-反演积分}
+已知像函数 \(F(s)\) 求原像函数 \(f(t)\)： \[
+f(t)=\frac{1}{2\pi j} \int _{\beta - j\omega}^{\beta + j\omega} F(s)e^{st}\,\mathrm{d}s,\quad t > 0.
+\] 这个积分被称为 Laplace 反演积分。
+\subsubsection{Laplace 逆变换的计算}
+\label{laplace-逆变换的计算}
+\paragraph{用 Laplace 逆变换的性质计算}
+\label{用-laplace-逆变换的性质计算}
+\begin{align*}
+\mathcal{L}^{-1}\left[b_{1} F_{1}(s)+b_{2} F_{2}(s)\right] &= b_{1} f_{1}(t)+b_{2} f_{2}(t) \\
+\mathcal{L}^{-1}\left[F^{(n)}(s)\right] &= (-t)^{n} f(t) \\
+\mathcal{L}^{-1}\left[\frac{F(s)}{s}\right] &= \int_{0}^{t} f(t)dt \\
+\mathcal{L}^{-1}\left[\int_{s}^{\infty} F(s)\mathrm{d} s\right] &= \frac{f(t)}{t} \\
+\mathcal{L}^{-1}\left[e^{-s\tau} F(s)\right] &= f(t-\tau) \\
+\mathcal{L}^{-1}\left[F(s-\alpha)\right] &= e^{\alpha t}f(t)
+\end{align*}
+\subsection{卷积}
+\label{卷积}
+\subsubsection{卷积概念}
+\label{卷积概念}
+两个函数的卷积是指
+
+\[
+f_{1}(t) * f_{2}(t) = \int_{-\infty}^{+\infty} f_{1}(\tau) f_{2}(t-\tau) \mathrm{d} \tau
+\]
+
+如果 \(f_{1}(t)\) 与 \(f_{2}(t)\) 都满足条件：当 \(t < 0\) 时，\(f_{1}(t) = f_{2}(t) = 0\) ，则上式可以写成：
+
+\begin{align*}
+f_{1}(t) * f_{2}(t) &= \int_{-\infty}^{0} f_{1}(\tau) f_{2}(t-\tau) \,\mathrm{d} +
+\tau +\int_{0}^{t} f_{1}(\tau) f_{2}(t-\tau)  \mathrm{d} \tau +
+\int_{t}^{+\infty} f_{1}(\tau) f_{2}(t-\tau) \,\mathrm{d} \tau \\
+&= \int_{0}^{t} f_{1}(\tau) f_{2}(t-\tau) \,\mathrm{d} \tau .
+\end{align*}
+\subsubsection{卷积性质}
+\label{卷积性质}
+\begin{enumerate}
+\item 交换律
+\[
+    f_1(t) * f_2(t) = f_2(t) * f_1(t)
+    \]
+\item 分配律
+\[
+    f_1(t)*(f_2(t)+f_3(t)) = f_1(t) * f_2(t) + f_1(t) * f_3(t)
+    \]
+\item 结合律
+\[
+    (f_1(t) * f_2(t)) * f_3(t) = f_1(t) * (f_2(t) * f_3(t))
+    \]
+\end{enumerate}
+\subsubsection{卷积定理}
+\label{卷积定理}
+设 \(f_1(t), f_2(t)\) 满足 Laplace 变换存在定理条件，且
+\(\mathcal{L}[f_1(t)] = F_1(s)\)，\(\mathcal{L}[f_2(t)] = F_2(s)\)，则
+
+\[
+\mathcal{L}[f_1(t) * f_2(t)] = \mathcal{L}[f_1(t)] \cdot \mathcal{L}[f_2(t)] = F_1(s) \cdot F_2(s)
+\]
+
+（或：\(\mathcal{L}^{-1}[F_1(s) \cdot F_2(s)] = f_1(t) * f_2(t)\)）
+
+\textbf{推广}：\(\mathcal{L}[f_k(t)] = F_k(s)\)，\(k = 1, 2, \cdots, n\)，则
+
+\[
+\mathcal{L}[f_1(t) *\cdots* f_n(t)] = F_1(s) \cdots F_n(s)
+\]
+
+或
+
+\[
+\mathcal{L}^{-1}[F_1(s) \cdots F_n(s)] = f_1(t) *\cdots* f_n(t)
+\]
+\subsection{Laplace 变换应用}
+\label{laplace-变换应用}
+应用拉氏变换解线性微(积)分方程(组)。
+\subsubsection{微分方程的 Laplace 变换解法}
+\label{微分方程的-laplace-变换解法}
+\begin{align*}
+    \boxed{\text{微分方程}}
+    & \xrightarrow{\text{取拉氏变换}}
+    \boxed{\text{像函数的代数方程}} \\
+    & \xrightarrow{\text{解代数方程}}
+    \boxed{\text{像函数}} \\
+    & \xrightarrow{\text{取 Laplace 逆变换}}
+    \boxed{\text{原像函数是微分方程的解}}
+\end{align*}

@@ -1,0 +1,440 @@
+\section{解析函数}
+\label{解析函数}
+\subsection{复变函数的导数和微分}
+\label{复变函数的导数和微分}
+\subsubsection{导数}
+\label{导数}
+\textbf{定义}：设函数 \(w=f(z)\) 定义于区域 \(D\)，\(z_{0}\) 为 \(D\)
+中的一点，点 \(z_{0}+\Delta{z}\) 不出 \(D\) 的范围。 如果极限
+\(\lim\limits_{\Delta{z} \to 0} \dfrac{f(z_{0}+\Delta{z})-f(z_{0})}{\Delta{z}}\)
+存在，就称 \(f(z)\) 在 \(z_{0}\) 可导。 这个极限值称为 \(f(z)\) 在
+\(z_{0}\) 的导数，记作
+
+\[
+f^{\prime}(z_{0})=\left.\dfrac{dw}{dz}\right|_{z=z_{0}}=\lim_{\Delta{z} \to 0} \dfrac{f(z_{0}+\Delta{z})-f(z_{0})}{\Delta{z}}.
+\]
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+在定义中应注意：
+\(z_{0}+\Delta z \to z_{0}\)（即 \(\Delta z \to 0\)）的方式是\textbf{任意的}。
+
+即 \(z_{0}+\Delta z\) 在区域 \(D\) 内以任意方式趋于 \(z_{0}\) 时，
+
+比值 \(\dfrac{f(z_{0}+\Delta z)-f(z_{0})}{\Delta z}\) 都趋于同一个数。
+
+如果函数 \(f(z)\) 在区域 \(D\) 内处处可导，我们就称 \(f(z)\) 在区域 \(D\) 内可导。
+
+\end{tcolorbox}
+
+就函数的可导性而言：如果一个复变函数能写的只和 \(z\) 有关而不依靠
+\(\bar{z}\) （依靠 \(x,y\)
+也算），那么它\textbf{可导}（甚至\textbf{解析}），并且表现得像对应的实变函数。
+\subsubsection{导数法则}
+\label{导数法则}
+\begin{enumerate}
+\item \((c)' = 0\)，其中 \(c\) 为复常数。
+\item \((z^{n})' = nz^{n-1}\)，其中 \(n\) 为正整数。
+\item \([f(z)\pm g(z)]^{\prime}=f^{\prime}(z)\pm g^{\prime}(z)\)
+\item \([f(z)g(z)]^{\prime}=f^{\prime}(z)g(z)+f(z)g^{\prime}(z)\)
+\item \(\left[\dfrac{f(z)}{g(z)}\right]^{\prime}=\dfrac{f^{\prime}(z)g(z)-f(z)g^{\prime}(z)}{g^{2}(z)}\)，其中
+\(g(z)\neq 0\)
+\item \(\{f[g(z)]\}^{\prime}=f^{\prime}(w)g^{\prime}(z)\)，其中 \(w=g(z)\)
+\item \(f^{\prime}(z)=\dfrac{1}{\varphi^{\prime}(w)}\)，其中 \(w=f(z)\) 与
+\(z=\varphi(w)\) 是两个互为反函数的单值函数，且
+\(\varphi^{\prime}(w)\neq 0\)
+\end{enumerate}
+\subsubsection{微分}
+\label{微分}
+\textbf{复变函数微分的概念在形式上和实变的一致。}
+
+如果函数在 \(z_0\) 的微分存在，则称 \(f(z)\) 在 \(z_0\) \textbf{可微}。
+
+在某一点的可导和可微\textbf{等价}，且在一个\textbf{区域}内可微的意思是\textbf{处处可微}。
+\subsubsection{解析}
+\label{解析}
+如果 \(f(z)\) 在 \(z_0\) 和 \(z_0\) 的邻域内处处可导，称它在 \(z_0\)
+\textbf{解析}。
+
+处处解析称为在区域上解析。
+
+在区域内，\textbf{可导}，\textbf{解析}，\textbf{处处可导}，\textbf{处处解析}这四个词\textbf{等价}。
+
+对于一点，可导的要求要比解析低。
+\subsubsection{奇点}
+\label{奇点}
+如果函数 \(f(z)\) 在 \(z_0\) 点\textbf{不解析}，则称 \(z_0\) 点为 \(f(z)\)
+的奇点。
+
+注意：对于一个单独的点，可能出现\textbf{可导}却\textbf{不解析}的情况。
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+一个比较神人的函数：\(f(z)=|z|^2\)
+这个函数仅在 \(z=0\) 这一点可导，所以处处不解析。在 \(z=0\) 也\textbf{不解析}！因为解析要求在某一点的邻域也可导。
+
+\end{tcolorbox}
+\subsubsection{解析的相关定理}
+\label{解析的相关定理}
+\begin{enumerate}
+\item 除非分母为零，解析函数的和差积商在原解析范围内仍然解析。
+\item 解析函数复合，在原解析范围内仍然解析。
+\end{enumerate}
+\subsection{函数解析的充要条件}
+\label{函数解析的充要条件}
+\subsubsection{柯西-黎曼方程}
+\label{柯西-黎曼方程}
+此方程有时候会用这两个人名的首字母 C 和 R 表示为 \textbf{CR 方程}。
+
+函数 \(f(z)\) 在一点可导的充要条件是：
+
+\begin{enumerate}
+\item \(u(x,y)\) 和 \(v(x,y)\) 在这一点可微。
+\item 在这一点满足柯西黎曼方程：
+\end{enumerate}
+
+\[
+\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y},\quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}.
+\]
+
+得到求导公式：
+
+\begin{equation*}
+\begin{aligned}
+   f'(z) &= \frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x}\\
+   &=-i\frac{\partial u}{\partial y}+\frac{\partial v}{\partial y}\\
+   &=\frac{\partial u}{\partial x}-i\frac{\partial u}{\partial y}\\
+   &=\frac{\partial v}{\partial y}+i\frac{\partial v}{\partial x}
+\end{aligned}
+\end{equation*}
+
+\begin{tcolorbox}[title={解释},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+若函数 \(f(z)\) 在一点 \(z_{0}\) 可导，则其在各个方向上的导数均存在且相等，则其
+在水平和竖直方向上的导数相等。分别从这两个方向趋紧 \(z_{0}\) 求导数，并建立等式，
+即可得到柯西黎曼方程。
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+另外：柯西黎曼方程等价于
+\(\dfrac{\partial f}{\partial \bar{z}}=0\)。
+
+凭直觉来说，这意味着一个不依赖 \(\bar{z}\) 的函数应当是解析的，一个解析的函数也不该出现任何的 \(x,y,\bar{z}\) 之类的东西。
+
+但是瞪眼法只能观察显式形式，其实并不能确定这个函数到底和 \(\bar{z}\) 有没有关系。比如 \(f(x)=|z|^2=z\bar{z}\) 就是一个经典诈骗。
+
+还有复变数指数函数
+
+\begin{equation*}
+\begin{aligned}
+    f(z)&=e^x(\cos y+i\sin y)\\
+    &=e^{x+iy}=e^z
+\end{aligned}
+\end{equation*}
+
+形式上也有 \(x\) 和 \(y\)，但是它在复平面内\textbf{处处可导}，\textbf{处处解析}。
+
+\end{tcolorbox}
+\subsubsection{判定方法}
+\label{判定方法}
+\begin{enumerate}
+\item 如果用求导公式和法则证实 \(f(z)\)
+导数在区域内处处存在，那么根据定义它是解析的。
+\item 偏导连续这个条件比可微更强，而且判定柯西黎曼方程的时候偏导数还是要算。很多时候可微都是用偏导连续直接得到的。
+\end{enumerate}
+
+\begin{tcolorbox}[title={例题引出的一些内容},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+另一个神人函数 \(f(z)=\sqrt{|xy|}\) 在
+\(z=0\) 处虽然满足柯西黎曼方程，因为在这一点
+\(u_x=u_y=v_x=v_y=0\)，但是这个函数在这一点，不！可！导！（沿着 \(y=kx\)
+趋于零就会发现 \(k\) 无法消去）
+
+因此需要注意的是，虽然一眼看上去柯西黎曼方程更难满足，实际上 \(u\) 和 \(v\) 的可微性也不是什么省油的灯，而且\textbf{会坑人}。
+
+此外，显然如果一个解析函数的 \(u,v\) 中有一个是常函数，整个解析函数会被锁死成常函数，这是显而易见的，因为柯西黎曼方程会锁定所有偏导数全为 0。
+
+但是，如果 \(u\) 是 \(v\) 的函数或者反之，这个解析函数也\textbf{只能是常函数}：
+
+不妨假设 \(v=F(u)\)。那么
+
+$$
+\frac{\partial v}{\partial x}=F'(u)\frac{\partial u}{\partial x},\quad \frac{\partial v}{\partial y}=F'(u)\frac{\partial u}{\partial y}
+$$
+
+然后柯西黎曼方程开始发力：
+
+$$
+\frac{\partial u}{\partial y}=-F'(u)\frac{\partial u}{\partial x},\quad \frac{\partial u}{\partial x}=F'(u)\frac{\partial u}{\partial y}
+$$
+
+等下，这看着感觉已经只能全为 \(0\) 了，但是还不够严谨。所以把第二个式子带进第一个式子里面：
+
+$$
+\frac{1}{F'(u)} \frac{\partial u}{\partial x} = -F'(u) \frac{\partial u}{\partial x}
+$$
+
+于是
+
+$$
+\left[1 + (F'(u))^2\right] \frac{\partial u}{\partial x} = 0
+$$
+
+左边中括号里的内容必定大于零，那只能 \(\dfrac{\partial u}{\partial x}=0\)。这个先河一开直接宣告所有偏导归零，函数变成常函数。
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[title={顺带一提的怪东西},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+两条曲线正交的意思是它们\textbf{交点处}的\textbf{切线互相垂直}。
+
+然后，对于一个解析函数而言，它的实部等值线族 \(u(x,y)=C_1\) 和虚部等值线族 \(v(x,y)=C_2\) 是正交的。
+
+一个很简单的解释是，这两个等值线族在某一点的法向量分别是 \((u_x,u_y)\) 和 \((v_x,v_y)\)。而根据柯西黎曼方程，它们两个求内积结果为 \(u_xv_x+u_yv_y=u_x(-u_y)+u_y(u_x)=0\)。
+
+如果 \(u_y,v_y\) 其一为零，那另一个必不为零。而且就算一个水平，另一个必定铅直，正交是跑不了的。
+
+\end{tcolorbox}
+\subsection{复变数初等函数}
+\label{复变数初等函数}
+\subsubsection{复变数指数函数}
+\label{复变数指数函数}
+\textbf{定义}：曾提到过的
+
+\[
+w=f(z)=e^x(\cos y +i\sin y)
+\]
+
+往往用 \(\exp z\) 或者 \(e^z\) 表示。它等价于：
+
+\begin{equation*}
+\begin{cases}
+    |\exp z|=e^x\\
+    \operatorname{Arg}(\exp z)=y+2k\pi
+\end{cases}
+\quad (k \in \mathbb{Z})
+\end{equation*}
+
+\textbf{加法定理}：
+
+\[
+\exp z_1 \cdot \exp z_2 = \exp (z_1+z_2)
+\]
+
+\textbf{周期性}：与实变函数的 \(e^x\) 有所不同，它是\textbf{有周期}的，周期为
+\(2k\pi i\)，也就是说
+\(\exp(z+2k\pi i)=\exp z \cdot \exp(2k\pi i)=\exp z\)。
+\subsubsection{复变数对数函数}
+\label{复变数对数函数}
+规定满足 \(\exp w=z(z \ne 0)\) 的函数 \(w=f(z)\) 为对数函数，记为
+
+\[
+w=\operatorname{Ln}z=\ln |z|+i\operatorname{Arg}z
+\]
+
+因为用到了同为多值函数的
+\(\operatorname{Arg}\)，显然这也是一个多值函数。
+
+所以自然就会有一个单值函数的版本
+\(\ln z = \ln |z|+i\operatorname{arg}z\)，使用单值函数版本的
+\(\operatorname{arg}\)。
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+注意这里式子左边的 \(\ln\)
+指的是复变的单值版本，右边的则指的是实变对数函数。
+
+你可以把它理解为函数重载。
+
+并且这样定义过后，这个复变版本的 \(\ln\) 在 \(z=x>0\) 的时候可以退为实变函数的 \(\ln\)。
+
+\end{tcolorbox}
+
+在实变函数中，\(\ln x(x<0)=\text{NaN}\)，而复变版本的
+\(\operatorname{Ln}\) 和 \(\ln\) 是一种推广。
+
+\textbf{性质}：
+
+\begin{enumerate}
+\item \(\operatorname{Ln}(z_1 \cdot z_2)=\operatorname{Ln}z_1+\operatorname{Ln}z_2\)
+\item \(\operatorname{Ln}\dfrac{z_1}{z_2}=\operatorname{Ln}z_1-\operatorname{Ln}z_2\)
+\item \(\operatorname{Ln}z^n=n\operatorname{Ln}z\) 和
+\(\operatorname{Ln}\sqrt[n]{z}=\dfrac{1}{n}\operatorname{Ln}z\)
+\textbf{不再成立}，将 \(\operatorname{Ln}\) 换为 \(\ln\) \textbf{也不成立}。
+\item \(n\operatorname{Ln}z=\overbrace{\operatorname{Ln}z+\cdots+\operatorname{Ln}z}^{n 个}\)
+也不再成立。这个很有迷惑性，你可以认为 \(\operatorname{Ln}\)
+函数返回一个包含所有值的集合，因此\texttt{operator+}、\texttt{operator=}被\textbf{重载}为集合的闵可夫斯基加法、集合的相等。
+\end{enumerate}
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+需要注意的是：
+
+\begin{enumerate}
+\item 因为 \(\operatorname{Ln}\) 依赖于 \(\operatorname{Arg}\)，所以等式中等号的含义是两侧的集合相等。
+\item 因此，如果尝试将 \(\operatorname{Ln}\) 替换为 \(\ln\) ，\textbf{等号无法成立}。
+\item 以上两条全部是因为幅角的特殊性和周期性，这和处理三角函数问题的时候如出一辙。
+\end{enumerate}
+
+\end{tcolorbox}
+
+\textbf{连续性}：在\textbf{除去了负实轴和原点之后的复平面}内，主值\textbf{分支}和其他各\textbf{分支}处处连续，处处可导。并且
+
+\[
+(\ln z)'=\frac{1}{z},\quad (\operatorname{Ln}z)'=\frac{1}{z}
+\]
+\subsubsection{乘幂与幂函数}
+\label{乘幂与幂函数}
+规定对于 \(z \ne 0\)，复变数幂函数为
+
+\[
+w=z^b=\exp(b\operatorname{Ln}z)
+\]
+
+规定当 \(z=0\) 时，\(b\) 应为正实数，并且 \(0^b=0\)。
+
+显然因为对数函数是多值的且有无穷多个，复变数幂函数也应该有无穷多个值。除非：
+
+\begin{enumerate}
+\item \(b\) 为正整数，这时候有单一值。（可理解为退化成乘方的定义）
+\item \(b=\dfrac{p}{q}\)，其中 \(p,q\) 互质，\(q>0\)。这时候有 \(q\)
+个值。（可理解为它退化成先乘方再开根，于是遵循几次方根几个值）
+\item 当 \(p=1,q=n\)，这时候退化为 \(n\) 次方根。
+\end{enumerate}
+
+\textbf{解析性}：
+
+\begin{enumerate}
+\item \(z^n\) 在复平面内单值解析，\(\left(z^n\right)'=nz^{n-1}\)。
+\item \(z^{\frac{1}{n}}\)
+是多值函数，有 n 个分支，各个分支在\textbf{除原点和负实轴的复平面内}解析。 \[
+    \left(z^{\frac{1}{n}}\right)'=\frac{1}{n}z^{\frac{1}{n}-1}
+    \]
+\item 其他情况下也是多值函数，且 \(b\)
+不是有理数时无穷多值。它的各个分支在\textbf{除原点和负实轴外的复平面内}解析，\(\left(z^b\right)'=bz^{b-1}\)。
+\end{enumerate}
+\subsubsection{三角和双曲函数}
+\label{三角和双曲函数}
+根据
+\(e^{iy}=\cos y+i\sin y,\quad e^{-iy}=\cos y-i\sin y\)，将两式相加减，得到
+
+\[
+\cos y=\frac{e^{iy}+e^{-iy}}{2},\quad \sin y=\frac{e^{iy}-e^{-iy}}{2i}.
+\]
+
+把上面的 \(y\) 换成 \(z\) 即可把三角函数推广到复数。
+
+显然 \(\sin z\) 是奇函数，\(\cos z\) 是偶函数。它们的周期都为 \(2\pi\)。
+
+它们在复平面内都解析。导数公式和实变版本一致：
+
+\[
+(\sin z)'=\cos z,\quad (\cos z)'=-\sin z.
+\]
+
+当 \(z=yi\) 为纯虚数，
+
+\[
+\cos yi=\frac{e^{-y}+e^y}{2}=\cosh y,\\
+\sin yi=\frac{e^{-y}-e^y}{2i}=i\sinh y.
+\]
+
+\textbf{正弦函数和余弦函数的几组重要公式}：
+
+\begin{equation*}
+\begin{cases}
+\cos(z_{1}+z_{2})=\cos z_{1}\cos z_{2}-\sin z_{1}\sin z_{2}, \\
+\sin(z_{1}+z_{2})=\sin z_{1}\cos z_{2}+\cos z_{1}\sin z_{2}, \\
+\sin^{2}z+\cos^{2}z=1.
+\end{cases}
+\end{equation*}
+
+\begin{equation*}
+\begin{cases}
+\cos(x+y i)=\cos x\cosh y-i\sin x\sinh y, \\
+\sin(x+y i)=\sin x\cosh y+i\cos x\sinh y.
+\end{cases}
+\end{equation*}
+
+当 \(y \to \infty,|\sin yi| \to \infty,|\cos yi| \to \infty\)。这和实变函数是不
+一样的。
+
+\textbf{双曲函数}： 定义双曲余弦和双曲正弦为
+
+\begin{equation*}
+\begin{aligned}
+    \cosh z &= \frac{e^z+e^{-z}}{2},\\
+    \sinh z &= \frac{e^z-e^{-z}}{2}.
+\end{aligned}
+\end{equation*}
+
+当 \(z\) 为实数时，又和实变版本的定义一致。
+
+\(\sinh z\) 为奇函数，\(\cosh z\) 为偶函数。它们的周期都是 \(2\pi i\)。
+
+导数公式形式和实变的一致：
+
+\[
+(\sinh z)'=\cosh z,\quad (\cosh z)'=\sinh z.
+\]
+
+并有：
+
+\begin{equation*}
+\begin{aligned}
+    &\cosh y i=\cos y,\quad
+    \sinh y i=i \sin y. \\
+    &\begin{cases}
+        \cosh (x+yi)=\cosh x \cos y+i \sinh x \sin y, \\
+        \sinh (x+yi)=\sinh x \cos y+i \cosh x \sin y.
+    \end{cases}.
+\end{aligned}
+\end{equation*}
+\subsubsection{反三角函数和反双曲函数}
+\label{反三角函数和反双曲函数}
+设 \(z=\cos w\)，则记作 \(w=\operatorname{Arccos} z\)。
+
+由 \(z=\cos w=\dfrac{e^{iw}+e^{-iw}}{2}\)，得 \(e^{iw}-2ze^{iw}+1=0\)。
+
+于是 \(e^{iw}=z+\sqrt{z^2-1}\)，取对数得到
+
+\[
+\operatorname{Arccos}z=-i\operatorname{Ln}(z+\sqrt{z^2-1}).
+\]
+
+同理可得：
+
+\begin{equation*}
+\begin{aligned}
+    \operatorname{Arcsin}z&=-i\operatorname{Ln}(iz+\sqrt{1-z^2}), \\
+    \operatorname{Arctan}z&=-\frac{i}{2}\operatorname{Ln}\frac{1+iz}{1-iz}.
+\end{aligned}
+\end{equation*}
+
+反双曲函数的定义：
+
+\begin{equation*}
+\begin{aligned}
+ \operatorname{Arsinh}z &= \operatorname{Ln}(z + \sqrt{z^{2}+1}) \\
+\operatorname{Arcosh}z &= \operatorname{Ln}(z + \sqrt{z^{2} - 1}) \\
+\operatorname{Artanh}z &= \dfrac{1}{2}\operatorname{Ln}\dfrac{1 + z}{1 - z}
+\end{aligned}
+\end{equation*}

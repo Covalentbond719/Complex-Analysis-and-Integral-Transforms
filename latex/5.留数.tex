@@ -1,0 +1,367 @@
+\section{留数}
+\label{留数}
+\subsection{孤立奇点}
+\label{孤立奇点}
+\subsubsection{孤立奇点的概念}
+\label{孤立奇点的概念}
+如果函数 \(f(z)\) 在 \(z_0\) 不解析, 但 \(f(z)\) 在 \(z_0\)
+的某一去心邻域 \(0 < |z - z_0| < \delta\) 内处处解析, 则称 \(z_0\) 为
+\(f(z)\) 的孤立奇点.
+\subsubsection{孤立奇点的分类}
+\label{孤立奇点的分类}
+\paragraph{可去奇点}
+\label{可去奇点}
+如果洛朗级数中不含有 \(z-z_0\) 的负幂项，则孤立奇点 \(z_0\)称为 \(f(z)\)
+的可去奇点。
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+\begin{enumerate}
+\item \(z_0\) 是 \(f(z)\) 的可去奇点，而
+\[
+   f(z)=c_0+c_1(z-z_0)+\cdots+c_n(z-z_0)^n+\cdots\quad(0<\left|z-z_0\right|<\delta)
+   \] 则和函数 \(F(z)\) 在 \(z_0\) 解析。
+\item 无论 \(f(z)\) 在 \(z_0\) 是否有定义，补充 \(f(z_0)=c_0\) 则 \(f(z)\) 在 \(z_0\) 解析。
+\begin{equation*}
+f(z_{0})=\lim _{z\rightarrow z_{0}}f(z)\qquad
+f(z)=\begin{cases}
+F(z), & z\neq z_{0} \\
+c_{0}, & z=z_{0}
+\end{cases}
+\end{equation*}
+\end{enumerate}
+
+可以证明，若 \(\lim _{z\rightarrow z_{0}}f(z)\) 的极限存在为有限值，则 \(z_{0}\) 是可去奇点。
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[title={判定方法},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+\begin{enumerate}
+\item \textbf{由定义判断}：\\
+如果 \(f(z)\) 在 \(z_{0}\) 的洛朗级数无负幂项则 \(z_{0}\) 为 \(f(z)\) 的可去奇点。
+\item \textbf{判断极限} \(\lim_{z\to z_{0}}f(z)\)：\\
+若极限存在且为有限值，则 \(z_{0}\) 为 \(f(z)\) 的可去奇点。
+\end{enumerate}
+
+\end{tcolorbox}
+\paragraph{极点}
+\label{极点}
+\subparagraph{极点定义：}
+\label{极点定义}
+如果洛朗级数中只有有限多个 \(z-z_{0}\) 的负幂项，其中关于
+\((z-z_{0})^{-1}\) 的最高幂为 \((z-z_{0})^{-m}\)，即
+\(f(z)=c_{-m}(z-z_{0})^{-m}+\cdots+c_{-2}(z-z_{0})^{-2}+c_{-1}(z-z_{0})^{-1}+c_{0}+c_{1}(z-z_{0})+\cdots\)
+(m \(\geqslant 1\), \(c_{-m}\neq 0\))，或
+
+\[
+f(z)=\frac{1}{(z-z_{0})^{m}}g(z)
+\]
+
+则孤立奇点 \(z_{0}\) 称为函数 \(f(z)\) 的 \(m\) 级极点。
+
+\begin{tcolorbox}[title={说明},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+\begin{enumerate}
+\item \(g(z)=c_{-m}+c_{-m+1}(z-z_{0})+c_{-m+2}(z-z_{0})^{2}+\cdots\) \\
+特点：
+\begin{enumerate}
+\item 在 \(|z-z_{0}|<\delta\) 内是解析函数
+\item \(g(z_{0})\neq 0\)
+\end{enumerate}
+\item 如果 \(z_{0}\) 为函数 \(f(z)\) 的极点，则
+\[
+    \lim_{z\to z_{0}}f(z)=\infty.
+    \]
+\end{enumerate}
+
+\end{tcolorbox}
+\subparagraph{极点判定方法}
+\label{极点判定方法}
+\begin{enumerate}
+\item \textbf{由定义判别}
+\(f(z)\) 的洛朗展开式中含有 \(z-z_{0}\) 的负幂项为有限项。
+\item \textbf{由定义的等价形式判别}
+在点 \(z_{0}\) 的某去心邻域内
+\(f(z)=\dfrac{g(z)}{(z-z_{0})^{m}}\)，其中 \(g(z)\) 在 \(z_{0}\)
+的邻域内解析，且 \(g(z_{0})\neq 0\)。
+\item \textbf{利用极限} \(\lim\limits _{z\to z_{0}}f(z)=\infty\) 判断。
+\end{enumerate}
+\paragraph{本性奇点}
+\label{本性奇点}
+如果洛朗级数中\textbf{含有无穷多个} \(z-z_{0}\) 的负幂项，则孤立奇点
+\(z_{0}\) 称为 \(f(z)\) 的本性奇点。
+
+\begin{tcolorbox}[title={Example},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+例如
+\[
+e^{\frac{1}{z}}=\underbrace{1+z^{-1}+\frac{1}{2!}z^{-2}+\cdots+\frac{1}{n!}z^{-n}+\cdots}_\text{含有\textbf{无穷多个} $z$ 的负幂项}\quad(0< |z| <\infty)
+\]
+所以 \(z=0\) 为本性奇点，同时 \(\lim\limits_{z\to 0}e^{\frac{1}{z}}\) 不存在。
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[title={特点},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+在本性奇点的邻域内 \(\lim\limits_{z\to z_{0}}f(z)\)
+不存在且不为 \(\infty\)。
+
+\end{tcolorbox}
+\paragraph{总结}
+\label{总结}
+\begin{center}
+\begin{tabular}{lll}
+孤立奇点 & 洛朗级数特点 & \(\lim_{z \to z_{0}} f(z)\)\\
+\hline
+可去奇点 & 无负幂项 & 存在且为有限值\\
+\(m\)级极点 & 含有限个负幂项，关于 \((z-z_{0})^{-1}\) 的最高幂为 \((z-z_{0})^{-m}\) & \(\infty\)\\
+本性奇点 & 含无穷多个负幂项 & 不存在且不为 \(\infty\)\\
+\end{tabular}
+\end{center}
+\subsubsection{函数的零点和极点的关系}
+\label{函数的零点和极点的关系}
+\paragraph{零点定义}
+\label{零点定义}
+不恒等于零的解析函数 \(f(z)\) 如果能表示成
+
+\[ f(z) = (z - z_{0})^{m} \varphi(z) \]
+
+其中 \(\varphi(z)\) 在 \(z_{0}\) 解析且 \(\varphi(z_{0}) \neq 0\)，\(m\)
+为某一正整数，则 \(z_{0}\) 称为 \(f(z)\) 的 \(m\) 级\textbf{零点}。
+\paragraph{零点判定}
+\label{零点判定}
+如果 \(f(z)\) 在 \(z_{0}\) 解析，则 \(z_{0}\) 为 \(f(z)\) 的 \(m\)
+级零点的充要条件是
+
+\(f^{(n)}(z_{0})=0\)，\((n=0,1,2,\cdots m-1)\)；\(f^{(m)}(z_{0})\neq 0\)。
+\paragraph{关系定理}
+\label{关系定理}
+如果 \(z_0\) 是 \(f(z)\) 的 \(m\) 级极点，则 \(z_0\) 是
+\(\dfrac{1}{f(z)}\) 的 \(m\) 级零点，反之亦然。
+
+\begin{tcolorbox}[title={Info},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+这个定理给判断函数的极点提供了一个比较简便的方法。
+
+\end{tcolorbox}
+\subsection{复变函数的留数}
+\label{复变函数的留数}
+\subsubsection{留数的定义}
+\label{留数的定义}
+如果 \(z_{0}\) 为函数 \(f(z)\) 的一个孤立奇点，则沿在 \(z_{0}\)
+的某个去心邻域 \(0<|z-z_{0}|<R\) 内包含 \(z_{0}\) 的任意一条简单闭曲线
+\(C\) 的积分 \(\oint_{C} f(z)dz\) 的值除以 \(2\pi i\) 后所得的数称为
+\(f(z)\) 在 \(z_{0}\) 的留数，记作
+\(\operatorname{Res}[f(z),z_{0}]\)。（即 \(f(z)\) 在 \(z_{0}\)
+为中心的圆环域内的洛朗级数中负幂项 \(c_{-1}(z-z_{0})^{-1}\) 的系数。）
+\subsubsection{利用留数求积分}
+\label{利用留数求积分}
+\paragraph{留数定理}
+\label{留数定理}
+函数 \(f(z)\) 在区域 \(D\) 内除有限个孤立奇点
+\(z_{1},z_{2},\cdots ,z_{n}\) 外处处解析，\(C\) 是 \(D\)
+内包围诸奇点的一条正向简单闭曲线，则
+
+\[
+\oint_{C} f(z) \,\mathrm{d}z=2\pi i \sum_{k=1}^{n} \operatorname{Res}\left[f(z), z_k\right].
+\]
+
+说明：留数定理将沿封闭曲线 \(C\) 积分转化为求被积函数在 \(C\)
+内各孤立奇点处的留数。
+\paragraph{留数的计算方法}
+\label{留数的计算方法}
+\begin{enumerate}
+\item 如果 \(z_{0}\) 为 \(f(z)\) 的可去奇点，则
+\(\operatorname{Res}\left[f(z),z_{0}\right]=0\)。
+\item 如果 \(z_{0}\) 为 \(f(z)\) 的本性奇点，则需将 \(f(z)\)
+展开成洛朗级数求 \(c_{-1}\)。
+\item 如果 \(z_{0}\) 为 \(f(z)\) 的极点，则有如下计算规则：
+\begin{enumerate}
+\item 如果 \(z_{0}\) 为 \(f(z)\) 的一级极点，则
+\[
+      \operatorname{Res}\left[f(z),z_{0}\right]=\lim _{z\rightarrow z_{0}}\left(z-z_{0}\right) f(z).
+      \]
+\item 如果 \(z_{0}\) 为 \(f(z)\) 的 \(m\) 级极点，则
+\[
+      \operatorname{Res}\left[f(z),z_{0}\right]=\frac{1}{(m-1)!}\lim_{z\to z_{0}}\frac{\mathrm{d}^{m-1}}{\mathrm{d}z^{m-1}}\left[(z-z_{0})^{m}f(z)\right].
+      \]
+\item 设 \(f(z)=\dfrac{P(z)}{Q(z)}\)，\(P(z)\) 及 \(Q(z)\) 在 \(z_{0}\)
+都解析，如果
+\(P(z_{0})\neq 0\)，\(Q(z_{0})=0\)，\(Q^{\prime}(z_{0})\neq 0\)，则
+\(z_{0}\) 为 \(f(z)\) 的一级极点，且有
+\[
+      \operatorname{Res}[f(z),z_{0}]=\dfrac{P(z_{0})}{Q^{\prime}(z_{0})}.
+      \]
+\end{enumerate}
+\end{enumerate}
+\paragraph{简单闭曲线上的复积分计算方法}
+\label{简单闭曲线上的复积分计算方法}
+\begin{enumerate}
+\item 若闭曲线\textbf{内部无奇点}，积分为 \(0\)。
+\item 若闭曲线内部\textbf{有一个奇点}，考虑使用柯西积分公式或者高阶导数公式。
+\item 若闭曲线内部\textbf{有多个奇点}，用复合闭路定理转化为上一个情况。
+\item 用\textbf{留数定理}计算。
+\end{enumerate}
+\subsection{留数在定积分计算上的应用}
+\label{留数在定积分计算上的应用}
+\paragraph{形如 \(\int_0^{2\pi}R(\cos \theta, \sin \theta)\,\mathrm{d}\theta\) 的积分}
+\label{形如-int_02pircos-theta-sin-thetamathrmdtheta-的积分}
+思路：\(\boxed{\text{定积分}} \rightarrow \boxed{\text{复变函数沿着某条封闭路线的积分}}\)
+
+令 \(z=e^{i\theta}\)，则
+\begin{align*}
+z=e^{i\theta} \longrightarrow \,\mathrm{d}z=ie^{i\theta}\,\mathrm{d}\theta \longrightarrow \,\mathrm{d}\theta=\frac{\,\mathrm{d}z}{iz},\\
+\sin \theta = \frac{1}{2i}(e^{i\theta}-e^{-i\theta})=\frac{z^2-1}{2iz}, \\
+\cos \theta = \frac{1}{2}(e^{i\theta}+e^{-i\theta})=\frac{z^2+1}{2z}.
+\end{align*}
+当 \(\theta\) 历经 \([0,2\pi]\)，\(z\) 沿着单位圆周
+\(\left|z\right|=1\) 正方向绕行一周。
+
+
+\begin{align*}
+    & \int _{0}^{2\pi} R (\cos\theta, \sin\theta)\,\mathrm{d}\theta\\
+    =& \oint _{|z| = 1} R \left( \frac{z^2+1}{2z},\frac{z^2-1}{2iz} \right) \,\frac{\mathrm{d}z}{iz}\\
+    =& \oint _{|z| = 1} f(z) \,\mathrm{d}z\\
+    =& 2\pi i \sum _{k=1}^{n} \operatorname{Res}[f(z),z_k].
+\end{align*}
+
+
+这里
+\(f(z) = \dfrac{1}{iz} R\left( \dfrac{z^2+1}{2z}, \dfrac{z^2-1}{2iz} \right)\)
+是 \(z\)
+的有理函数，且在单位圆周上分母不为零，满足留数定理的条件。\(z_k\)
+是包围在单位圆周内的各个孤立奇点。
+\paragraph{形如 \(\int_{-\infty}^{+\infty}R(x)\,\mathrm{d}x\) 的积分}
+\label{形如-int_-inftyinftyrxmathrmdx-的积分}
+若有理函数 \(R(x)\) 的分母至少比分子高两次，并且分母在实轴上无孤立奇点。
+
+一般设
+\[
+R(z)=\frac{z^n+a_1z^{n-1}+\cdots+a_n}{z^m+b_1z^{m-1}+\cdots+b_m},\quad m-n \ge 2
+\]
+
+\begin{tcolorbox}[title={Info},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+这里是单纯的把实变函数的 \(x\) 换成了复变函数的
+\(z\)，不涉及任何变形，相当于照抄 \(R(x)\) 的形式写出了
+\(R(z)\)。这样一来 \(R(z)\) 在实轴上的表现就和 \(R(x)\) 是一致的。
+
+\end{tcolorbox}
+
+先讨论 \(\int_{-R}^R R(x)dx\)，最后令 \(R\to \infty\) 即可。
+
+取 \(R\) 适当大，这样 \(R(z)\) 所有在上半平面内的极点 \(z_k\)
+都包在这个积分路线内。
+
+补一条线 \(C_R\) 也就是以原点为中心，\(R\) 为半径的在上半平面的半圆周。
+
+\(C_R\) 和 \([-R,R]\) 一起构成了封闭曲线 \(C\)，\(R(z)\) 在 \(C\)
+及其内部除去有限孤立奇点之外处处解析。
+
+于是根据留数定理，
+\begin{align*}
+\int _{-R}^{R} R(x)\,\mathrm{d}x + \int _{C_R} R(z)\,\mathrm{d}z &= 2\pi i \sum \operatorname{Res}[R(z),z_k], \\
+\left|R(z)\right| &= \frac{1}{|z|^{m-n}}\frac{\left|1 + a_1z^{-1} + \cdots + a_nz^{-n}\right|}{\left|1 + b_1z^{-1} + \cdots + b_mz^{-m}\right|}\\
+ &\le \frac{1}{|z|^{m-n}}\frac{1 + \left|a_1z^{-1} + \cdots + a_nz^{-n}\right|}{1 - \left|b_1z^{-1} + \cdots + b_mz^{-m}\right|}
+\end{align*}
+
+下面我们的目的是试图证明这个 \(\int _{C_R} R(z)\,\mathrm{d}z\) 只要
+\(z\) 充分大就趋于 \(0\)，如果成功就可以简化计算。观察到前面那一项
+\(\dfrac{1}{|z|^{m-n}}\) 是趋于 \(0\)
+的，那如果后面的那一项能被一个常数压住而不要发散到无穷就可以证明了。
+
+所以我们进行了上面的放缩操作，目的是利用 \(|z|\) 足够大的时候 \(z\)
+的任何负数次幂在 \(1\) 面前都可以忽略不计。 随便找一个
+\(0 < p < 1\)，比如 \(\dfrac{1}{2}\)（当然老师的课件上是
+\(\frac{1}{10}\)，其实随便），当 \(|z|\)
+充分大的时候，\(\left|a_1z^{-1} + \cdots + a_nz^{-n}\right|\) 和
+\(\left|b_1z^{-1} + \cdots + b_mz^{-m}\right|\) 是肯定可以小于 \(p\)
+的。再考虑 \(m-n > 2\)，那一定有
+
+\begin{equation*}
+|R(z)| < \frac{1}{|z|^2} \cdot \frac{1+p}{1-p} = \frac{3}{|z|^2},
+\end{equation*}
+
+注意这里的 \(3\) 是那个 \(\dfrac{1+p}{1-p}\)
+算出来的，不是魔法数字。然后喜闻乐见的放缩：
+
+\[
+\left|\int_{C_R} R(z)\,\mathrm{d}z \right| \le \int _{C_R} |R(z)|\,\mathrm{d}s \le \frac{3}{R^2} \pi R = \frac{3\pi}{R}.
+\]
+
+这样一搞，这个常数是多少根本不重要，只要是个常数，就可以保证
+\(R \to \infty\) 的时候整个式子趋于 \(0\)。
+
+于是就得到：
+\[
+\boxed{
+    \int_{-\infty}^{+\infty}R(x)\,\mathrm{d}x=2\pi i \sum \operatorname{Res}[R(z),z_k]
+}
+\]
+\paragraph{形如 \(\int_{-\infty}^{+\infty}R(x)e^{aix}\,\mathrm{d}x,(a>0)\) 的积分}
+\label{形如-int_-inftyinftyrxeaixmathrmdxa0-的积分}
+积分存在要求： \(R(x)\) 是 \(x\)
+的有理函数，且分母的次数至少比分子的次数高一次，而且 \(R(x)\)
+在\textbf{实轴上无孤立奇点}。
+
+和前面一样的是补一条很大的 \(C_R\)，构成封闭曲线 \(C\)
+包裹住上半平面的所有极点。
+
+对于 \(|z|\) 充分大，而且 \(m-n \ge 1\)，就会有
+\(|R(z) < \dfrac{2}{|z|}\)。
+
+\[
+\left| \int _{C_R} R(z)e^{aiz}\,\mathrm{d}z \right| \le \int _{C_R} |R(z)| \left|e^{aiz}\right| \,\mathrm{d}s < \frac{2}{R} \int _{C_R} \left|e^{ai(x+iy)}\right| \,\mathrm{d}s
+\]
+
+令 \(x=R\cos \theta,y=R\sin\theta\)，则
+\[
+\,\mathrm{d}s=|\,\mathrm{d}z|=\left|\,\mathrm{d}(Re^{i\theta})\right|=R\,\mathrm{d}\theta,\\
+z=R(\cos\theta+i\sin\theta),\quad 0 < \theta < \pi.\\
+\]
+
+\begin{align*}
+    \frac{2}{R} \int _{C_R} \left| e^{ai(x+iy)} \right| \,\mathrm{d}s
+    &= \frac{2}{R} \int _{C_R} \left| e^{axi} \right|  \left| e^{-ay} \right| \,\mathrm{d}s
+    \\
+    &= 2 \int _{0}^{\pi} e^{-aR\sin\theta} \,\mathrm{d}\theta
+    \\
+    &= 4 \int _{0}^{\frac{\pi}{2}} e^{-aR\sin\theta}  \,\mathrm{d}\theta
+    \\
+    &\le 4 \int _{0}^{\frac{\pi}{2}} e^{-aR(\frac{2\theta}{\pi})} \,\mathrm{d}\theta
+    \\
+    &= \frac{2 \pi}{aR} (1-e^{-aR}).
+\end{align*}
+
+当 \(R \to \infty\)，\(1-e^{-aR} \to 0\)。从而
+\[
+\int_{C_R} R(z)e^{aiz} \,\mathrm{d}z \to 0.
+\]
+
+由留数定理：
+\[
+\int_{-R}^{+R}R(x)e^{aix}\,\mathrm{d}x + \int_{C_R} R(z)e^{aiz} \,\mathrm{d}z = 2 \pi i \sum \operatorname{Res}[R(z)e^{aiz},z_k].
+\]
+
+\(R\rightarrow +\infty:\)
+
+\[
+\int_{-\infty}^{+\infty}R(x)e^{aix}dx = 2\pi i\sum Res[R(z)e^{aiz},z_k] \]
+也可以由 \(\boxed{e^{iax}=\cos ax + i\sin ax}\) 得到下面的形式： \[
+\int_{-\infty}^{+\infty}R(x)\cos ax\,dx + i\int_{-\infty}^{+\infty}R(x)\sin ax\,dx = 2\pi i\sum Res[R(z)e^{aiz},z_k]
+\]

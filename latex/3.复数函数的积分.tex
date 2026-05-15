@@ -1,0 +1,331 @@
+\section{复变函数的积分}
+\label{复变函数的积分}
+\subsection{复变函数积分}
+\label{复变函数积分}
+\subsubsection{有向曲线}
+\label{有向曲线}
+设 \(C\) 为平面上给定的一条光滑（或按段光滑）曲线，如果选定 \(C\)
+的两个可能方向中的一个作为正方向（或正向），那么我们就把 \(C\)
+理解为带有方向的曲线，称为\textbf{有向曲线}。
+
+如果 \(A\) 到 \(B\) 作为曲线 \(C\) 的正向，那么 \(B\) 到 \(A\) 就是曲线
+\(C\) 的负向，记为 \(C^{-}\).
+
+\textbf{简单闭曲线的正向}： 简单闭曲线 \(C\) 的正向是指，当曲线上的点 \(P\)
+顺此方向前进时，邻近 \(P\) 点的曲线的内部始终位于 \(P\)
+点的左方。与之相反的方向就是曲线的负方向。
+\subsubsection{积分定义}
+\label{积分定义}
+设函数 \(w = f(z)\) 定义在区域 \(D\) 内，\(C\) 为区域 \(D\) 内起点为
+\(A\) 终点为 \(B\) 的一条光滑的有向曲线。把曲线 \(C\) 任意分成 \(n\)
+个弧段，设分点为
+
+\[
+A = z_0, z_1, \cdots, z_{k-1}, z_k, \cdots, z_n = B,
+\]
+
+在每个弧段 \(\widehat{z_{k-1}z_k}\quad (k = 1, 2, \dots, n )\)
+上任意取一点 \(\zeta_k\)。
+
+作和式
+
+\[
+S_{n} = \sum_{k=1}^{n} f(\zeta_{k}) \cdot (z_{k} - z_{k-1}) = \sum_{k=1}^{n} f(\zeta_{k}) \cdot \Delta z_{k},
+\]
+
+这里 \(\Delta z_{k} = z_{k} - z_{k-1}\)，\(\Delta s_{k}\) 为弧段 \(z_{k-1}z_{k}\) 的长度，记
+\(\delta = \max\limits_{1 \leq k \leq n} \{\Delta s_{k}\}\). 当 \(n\) 无限增加且 \(\delta \to 0\) 时，
+如果不论对 \(C\) 的分法及 \(\zeta_{k}\) 的取法如何，\(S_{n}\) 有唯一极限，
+那么称这极限值为函数 \(f(z)\) 沿曲线 \(C\) 的积分，记为
+
+\[
+\int_{C} f(z)dz=\lim_{\delta \to 0}\sum^n_{k=1}f(\zeta_k)\cdot \Delta z_k.
+\]
+\subsubsection{积分存在的条件和计算法}
+\label{积分存在的条件和计算法}
+\textbf{存在的条件}： 如果 \(f(z)\) 是连续函数，而 \(C\) 是光滑曲线，则
+\(\int_C f(z)dz\)一定存在。
+
+\(\int_C f(z)dz=\int_C udx-vdy+i\int_C vdx+udy\).
+
+\textbf{积分的计算法}： 可以通过两个二元实变函数的线积分来计算。
+
+\begin{align*}
+\int_C f(z) \, dz
+&= \int_\alpha^\beta \left\{ u[x(t), y(t)] x'(t) - v[x(t), y(t)] y'(t) \right\} \, dt \\
+&\quad + i \int_\alpha^\beta \left\{ v[x(t), y(t)] x'(t) + u[x(t), y(t)] y'(t) \right\} \, dt \\
+&= \int_\alpha^\beta \left\{ u[x(t), y(t)] + i v[x(t), y(t)] \right\} \left\{ x'(t) + i y'(t) \right\} \, dt \\
+&= \boxed{\int_\alpha^\beta f[z(t)] z'(t) \, dt}
+\end{align*}
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+就是把参数方程的复数形式直接带进去。
+
+于是这变成了一个实参数 \(t\) 的定积分，唯一的不同就是被积函数是复变的了。
+
+\end{tcolorbox}
+
+如果 \(C\) 是 \(C_1,C_2,\cdots,C_n\) 等光滑曲线连接成的按段光滑曲线，则
+
+\[
+\int_{C} f(z)\mathrm{d} z=\int_{C_{1}} f(z)\mathrm{d} z+\int_{C_{2}} f(z)\mathrm{d} z+\cdots+\int_{C_{n}} f(z)\mathrm{d} z.
+\]
+\subsubsection{积分的性质}
+\label{积分的性质}
+复积分与实变函数的定积分有类似的性质。
+
+\begin{enumerate}
+\item \textbf{反向路径性质}
+\[
+   \int_{C} f(z)dz=-\int_{C^{-}}f(z)dz
+   \]
+\item \textbf{常数倍性质}
+\[
+   \int_{C} kf(z)dz=k\int_{C} f(z)dz \quad (k 为常数)
+   \]
+\item \textbf{线性性质}
+\[
+   \int_{C}[f(z)\pm g(z)]dz=\int_{C}f(z)dz\pm \int_{C}g(z)dz
+   \]
+\item \textbf{估值定理} 设曲线 \(C\) 的长度为 \(L\), 函数 \(f(z)\) 在 \(C\) 上满足
+\(\left |f(z)\right |\leq M\), 那么
+\[
+   \left|\int_{C}f(z)dz\right|\leq\int_{C}\left |f(z)\right | ds\leq ML
+   \]
+\end{enumerate}
+\subsubsection{柯西-古萨基本定理}
+\label{柯西-古萨基本定理}
+如果一个复变函数 \(f(z)\) 在一个\textbf{单连通区域} \(D\) 内是\textbf{解析}的，那么 \(f(z)\) 沿 \(D\) 内任意一条\textbf{简单闭合曲线} \(C\) 的积分都等于零。
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+\begin{enumerate}
+\item 这里的 \(C\) 可以不是简单曲线。
+\item 这个定理也成为柯西积分定理。
+\end{enumerate}
+
+\end{tcolorbox}
+\subsubsection{基本定理的推广}
+\label{基本定理的推广}
+\paragraph{闭路变形原理}
+\label{闭路变形原理}
+设 \(C_{1}\) 与 \(C_{2}\) 是两条简单闭曲线，\(C_{2}\) 在 \(C_{1}\) 的内部，
+\(f(z)\) 在 \(C_{1}\) 与 \(C_{2}\) 所围的多连通域 \(D\) 内解析，
+而在 \(D + C_{1} + C_{2}\) 上连续，则
+
+\[
+\int_{C_{1}} f(z) \, dz = \int_{C_{2}} f(z) \, dz.
+\]
+
+\begin{tcolorbox}[title={注：},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+如果我们把如上两条简单闭曲线 \(C_{1}\) 及 \(C_{2}^{-}\) 看成一条复合闭路 \(\Gamma\)，
+而且它的正向为：外面的闭曲线 \(C_{1}\) 按逆时针进行，里面的闭曲线 \(C_{2}\) 按
+顺时针进行（即沿 \(\Gamma\) 的正向进行时，\(\Gamma\) 的内部总在 \(\Gamma\) 的左手边），那么
+
+\[
+\oint_{\Gamma} f(z) \, dz = 0.
+\]
+
+该定理说明，在区域内的一个解析函数沿闭曲线的积分，不因闭曲线在区域内作连续变形而
+改变它的值，只要在变形过程中曲线\textbf{不经过}函数 \(f(z)\) \textbf{不解析}的点。
+
+\end{tcolorbox}
+\paragraph{复合闭路定理}
+\label{复合闭路定理}
+设 \(C\) 为多连通域 \(D\) 内的一条简单闭曲线，\(C_1, C_2, \ldots, C_n\) 是
+在 \(C\) 内部的简单闭曲线，它们互不包含也互不相交，并且以
+\(C, C_1, C_2, \ldots, C_n\) 为边界的区域全含于 \(D\)。如果 \(f(z)\) 在 \(D\) 内
+解析，那么
+
+\[
+\oint_{C} f(z) \, dz = \sum_{k=1}^{n} \oint_{C_k} f(z) \, dz,
+\]
+
+其中 \(C\) 及 \(C_k\) (\(k = 1, 2, \ldots, n\)) 均取正方向； 或
+
+\[
+\oint_{\Gamma} f(z) \, dz = 0.
+\]
+
+其中 \(\Gamma\) 为由 \(C\) 及 \(C_k\) (\(k = 1, 2, \cdots, n\)) 所组成的复合闭路
+（其方向是：\(C\) 按逆时针进行，\(C_k\) (\(k = 1, 2, \cdots, n\)) 按顺时针进行）。
+\subsubsection{柯西积分公式}
+\label{柯西积分公式}
+设 \(f(z)\) 在区域 \(D\) 内处处解析，\(C\) 为 \(D\) 内的任何一条正向简单闭曲线，
+它的内部完全含于 \(D\)，\(z_0\) 为 \(C\) 内的任一点，那么
+
+\[
+f(z_{0}) = \frac{1}{2\pi i} \oint_{C} \frac{f(z)}{z - z_{0}} \, dz.
+\]
+
+\begin{tcolorbox}[title={说明},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+\begin{enumerate}
+\item 把函数在 \(C\) 内部任一点的值用它在边界上的值表示。（这是解析函数的又一特征）
+\item 公式不但提供了计算某些复变函数沿闭路积分的一种方法，而且给出了解析函数的一个积分表达式。（这是研究解析函数的有力工具）
+\item 一个解析函数在圆心处的值等于它在圆周上的平均值。即，如果 \(C\) 是圆周 \(z = z_{0} + R \cdot e^{i\theta}\)，则有：
+$$
+    f(z_{0}) = \frac{1}{2\pi} \int_{0}^{2\pi} f(z_{0} + R \cdot e^{i\theta}) \, d\theta
+    $$
+\end{enumerate}
+
+\end{tcolorbox}
+\subsubsection{高阶导数公式}
+\label{高阶导数公式}
+设函数 \(f(z)\) 在区域 \(D\) 内解析，\(C\) 为 \(D\) 内任意一条包含点 \(z_0\) 的简单正向闭曲线，且 \(C\) 及其内部完全包含于 \(D\)，则 \(f(z)\)
+的各阶导数均存在，且 \(f(z)\) 在点 \(z_0\) 处的 \(n\) 阶导数为：
+
+\[
+f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_{C} \frac{f(z)}{(z - z_0)^{n+1}}  dz \quad (n = 1, 2, \cdots)
+\]
+\subsection{原函数和不定积分}
+\label{原函数和不定积分}
+\subsubsection{定理}
+\label{定理}
+\paragraph{定理一}
+\label{定理一}
+如果 \(f(z)\) 在单连通域内解析，则\textbf{积分与路径无关}。
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+解析函数在单连通域内的积分只和起点终点有关，那么我们分别让起点终点为
+\(z_0\) 和 \(z\)，固定 \(z_0\) 而移动
+\(z\)，就可以在这个单连通域内构造一个单值函数
+\[F(z) = \int _{z_0}^z f(\zeta)\,\mathrm{d}\zeta\]
+你可以把它当作\textbf{势函数}。
+
+\end{tcolorbox}
+\paragraph{定理二}
+\label{定理二}
+如果 \(f(z)\) 在单连通域 \(B\) 内解析，则
+\(F(z)=\int_{z_0}^{z}f(\zeta)d\zeta\) 必为 \(B\) 内一个解析函数，使得
+\(F'(z)=f(z)\)。
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+这和微积分中对变上限积分的求导定理很类似，可以类比。
+
+\end{tcolorbox}
+\subsubsection{原函数的定义}
+\label{原函数的定义}
+如果函数 \(\varphi(z)\) 在区域 \(B\) 内的导数为 \(f(z)\)，即
+\(\varphi^{\prime}(z)=f(z)\)，那么称 \(\varphi(z)\) 为 \(f(z)\) 在区域
+\(B\) 内的原函数。
+
+显然 \(F(z)=\int_{z_0}^{z}f(\zeta)d\zeta\) 是 \(f(z)\) 的一个原函数。
+
+\begin{tcolorbox}[title={原函数之间的关系},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+很显然，和实函数差不多的是，\(f(z)\)
+的\textbf{任何两个原函数相差一个常数}。
+
+\end{tcolorbox}
+\subsubsection{不定积分的定义}
+\label{不定积分的定义}
+称 \(f(z)\) 的原函数的一般表达式 \(F(z)+c\)（\(c\) 为任意常数）为
+\(f(z)\) 的不定积分，记作
+
+\[
+\int f(z)dz=F(z)+c.
+\]
+\paragraph{定理三（类似于牛顿-莱布尼兹公式）}
+\label{定理三类似于牛顿-莱布尼兹公式}
+如果函数 \(f(z)\) 在单连通域 \(B\) 内处处解析，\(G(z)\) 为 \(f(z)\)
+的一个原函数，那么
+
+\[
+\int_{z_0}^{z_1} f(z)dz=G(z_1)-G(z_0)
+\]
+
+这里 \(z_0, z_1\) 为域 \(B\) 内的两点。
+
+\begin{tcolorbox}[title={Morera 定理},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+若函数 \(f(z)\) 在单连通区域 \(D\) 内连续，且对 \(D\)
+内任一条逐段光滑的简单闭曲线 \(C\)，都有
+
+$$
+\oint_C f(z) \, dz = 0,
+$$
+
+则函数 \(f(z)\) 在区域 \(D\) 内解析。
+
+\end{tcolorbox}
+\subsection{解析函数和调和函数}
+\label{解析函数和调和函数}
+\subsubsection{调和函数}
+\label{调和函数}
+如果二元实变函数 \(\varphi(x,y)\) 在区域 \(D\)
+内具有二阶连续偏导数，并且满足拉普拉斯方程
+
+\[
+\frac{\partial^{2}\varphi}{\partial x^{2}} + \frac{\partial^{2}\varphi}{\partial y^{2}} = 0,
+\]
+
+那么称 \(\varphi(x,y)\) 为区域 \(D\) 内的\textbf{调和函数}。
+\subsubsection{解析函数和调和函数的关系}
+\label{解析函数和调和函数的关系}
+任何在区域 \(D\) 内解析的函数，它的实部和虚部都是 \(D\) 内的调和函数。
+\subsubsection{共轭调和函数}
+\label{共轭调和函数}
+设 \(u(x,y)\) 为区域 \(D\) 内给定的调和函数，我们把使 \(u+iv\) 在 \(D\)
+内构成解析函数的调和函数 \(v(x,y)\) 称为 \(u(x，y)\) 的共轭调和函数。
+
+换句话说，在 \(D\) 内满足方程 \[
+\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} ,\quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+\] 的两个调和函数中，\(v\) 称为 \(u\) 的共轭调和函数。
+
+\begin{tcolorbox}[title={Note},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+区域 \(D\) 内的解析函数的虚部是实部的共轭调和函数。
+
+\end{tcolorbox}
+\subsubsection{偏积分法}
+\label{偏积分法}
+如果已知一个调和函数
+\(u\)，那么就可以利用\textbf{柯西黎曼方程}求得它的共轭调和函数，从而构成一个解析函数
+\(u+vi\)。这种方法称为\textbf{偏积分法}。
+\subsubsection{不定积分法}
+\label{不定积分法}
+已知调和函数 \(u(x，y)\) 或
+\(v(x，y)\)，用不定积分求解析函数的方法称为不定积分法。
+
+\begin{tcolorbox}[title={具体过程},colback=red!5!white
+,colframe=red!75!black
+,colbacktitle=yellow!50!red
+,coltitle=red!25!black, fonttitle=\bfseries,subtitle style={boxrule=0.4pt, colback=yellow!50!red!25!white}]
+解析函数 \(f(z)=u+iv\) 的导函数也是解析函数，而且
+\[
+f'(z) = u_x + iv_x = u_x - iu_y = v_y + iv_x
+\]
+那我们把 \(u_x - iu_y\) 和 \(v_y + iv_x\) 用 \(z\) 来表示，那么
+\[
+f'(z) = u_x - iu_y = U(z), \quad f'(z) = v_y + iv_x = V(z).
+\]
+这两个式子都可以用来积分，分别能得到：
+\[
+f(z) = \int U(z)\,\mathrm{d}z+c,\quad f(z) = \int V(z)\,\mathrm{d}z+c.
+\]
+而这两个式子分别可以用于已知实部 \(u\) 和已知虚部 \(v\) 两种情形。
+
+\end{tcolorbox}
